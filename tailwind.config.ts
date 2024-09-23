@@ -11,8 +11,14 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        authformbackground: "#0D0040"
       },
     },
+    fontFamily: {
+      // Array format:
+      'sans': ['Helvetica', 'Arial', 'sans-serif'],
+      'roboto': ['Roboto', 'sans-serif']
+    }
   },
   plugins: [],
 };
