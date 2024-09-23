@@ -1,0 +1,11 @@
+https://dev-f21n5m3ogrqn451x.us.auth0.com/samlp/8igBw989arp3xZNu2ziDBUbb1eWt8LkW
+
+
+- Domain
+dev-f21n5m3ogrqn451x.us.auth0.com
+
+- Client Id
+kKk8xvu5bdSKUEMswaPJdiX4tWfLJ7UR
+
+- Client Secret
+giTJvKhxHNaDVd4cLu4Dk6TIF9z09N8mWDqPXzAmMo0EsQfv0TrSVs3Fb5lwKzvu
