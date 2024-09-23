@@ -38,8 +38,8 @@ const Login = ({ }) => {
                         </div>
                     </div>
 
-                    <p className="text-xs font-bold leading-4 mb-5">By signing, I agree to VSE's <span className="text-[#FFD601] cursor-pointer">Privacy Statement</span> and <span className="text-[#FFD601] cursor-pointer">Terms of Service</span></p>
-                    <p className="text-xs font-bold leading-4 mb-5">Don't have an account. <span className="text-[#FFD601] cursor-pointer">Sign up</span></p>
+                    <p className="text-xs font-bold leading-4 mb-5">By signing, I agree to VSE <span className="text-[#FFD601] cursor-pointer">Privacy Statement</span> and <span className="text-[#FFD601] cursor-pointer">Terms of Service</span></p>
+                    <p className="text-xs font-bold leading-4 mb-5">Do not have an account. <span className="text-[#FFD601] cursor-pointer">Sign up</span></p>
                     <div className="px-12 flex justify-between align-middle">
                         <div className="pt-1.5" style={{ height: `1px` }}>
                             <Image
