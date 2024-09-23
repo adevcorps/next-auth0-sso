@@ -34,7 +34,9 @@ const Login = ({ }) => {
                             </Link>
                         </div>
                         <div className="relative z-0 w-full mt-16 mb-5 group">
-                            <button className="w-full p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">Login</button>
+                            <Link href={`/login/welcome`}>
+                                <button className="w-full p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">Login</button>
+                            </Link>
                         </div>
                     </div>
 
@@ -60,17 +62,19 @@ const Login = ({ }) => {
                         </div>
                     </div>
                     <div className="px-12 pt-4">
-                        <button className="flex relative w-full p-2.5 text-lg font-bold text-black rounded-lg bg-white justify-center">
-                            <div className="absolute left-2">
-                                <Image
-                                    src={google.src}
-                                    width={32}
-                                    height={32}
-                                    alt="Google Icon"
-                                />
-                            </div>
-                            Login with Google
-                        </button>
+                        <Link href={`/login/welcome`}>
+                            <button className="flex relative w-full p-2.5 text-lg font-bold text-black rounded-lg bg-white justify-center">
+                                <div className="absolute left-2">
+                                    <Image
+                                        src={google.src}
+                                        width={32}
+                                        height={32}
+                                        alt="Google Icon"
+                                    />
+                                </div>
+                                Login with Google
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
