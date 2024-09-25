@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
+// import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 
 const identityPoolId = 'us-east-1:3834caa7-4e08-4569-92ff-236c9b736926'; // Replace with your Cognito Identity Pool ID
