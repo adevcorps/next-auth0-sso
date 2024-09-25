@@ -1,5 +1,5 @@
 import AWS from 'aws-sdk';
-const identityPoolId = 'eu-north-1:5b115bab-a35e-4474-8eb2-c29fab158238'; // Replace with your Cognito Identity Pool ID
+// const identityPoolId = 'eu-north-1:5b115bab-a35e-4474-8eb2-c29fab158238'; // Replace with your Cognito Identity Pool ID
 
 export const getAWSCredentials = async (auth0AccessToken: string) => {
   const cognitoIdentity = new AWS.CognitoIdentity({ region: 'eu-north-1' }); // Replace with your AWS region

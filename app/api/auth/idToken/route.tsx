@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
-import { getAccessToken, getSession } from '@auth0/nextjs-auth0';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import {getSession } from '@auth0/nextjs-auth0';
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-    const session:any = await getSession();
+export async function GET() {
+    const session = await getSession();
   if (session) {
     // Extract idToken from the session object
     const idToken = session.idToken;

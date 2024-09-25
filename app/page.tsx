@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Login from "./login/page";
 import Welcome from './login/welcome/page';
@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     const fetchAWSCredentials = async () => {
       if (user) {
-        // Call the API to get the Auth0 access token
+        // Call the API to get the Auth0 id token
         const idTokenResponse = await fetch('/api/auth/idToken');
         const { idToken } = await idTokenResponse.json();
         if(idTokenResponse.ok){

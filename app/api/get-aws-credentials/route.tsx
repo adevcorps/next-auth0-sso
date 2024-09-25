@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { CognitoIdentityClient, GetIdCommand, GetCredentialsForIdentityCommand } from '@aws-sdk/client-cognito-identity';
+import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 
 const identityPoolId = 'us-east-1:3834caa7-4e08-4569-92ff-236c9b736926'; // Replace with your Cognito Identity Pool ID
@@ -8,7 +8,6 @@ export async function POST(req: Request) {
     const  {idToken} = await req.json(); // Parse the request body
 
     // Initialize CognitoIdentityClient
-    const cognitoClient = new CognitoIdentityClient({ region: "us-east-1" });
     const logins = {
       'dev-f21n5m3ogrqn451x.us.auth0.com': idToken, // Replace with your Auth0 domain
     };

@@ -27,7 +27,8 @@ const UserProfile = ({}) => {
           setError(data.error || 'Failed to fetch token');
         }
       } catch (err) {
-        setError('An error occurred while fetching the token');
+        if(err)
+          setError('An error occurred while fetching the token');
       }
     };
 
