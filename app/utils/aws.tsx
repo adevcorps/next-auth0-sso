@@ -12,14 +12,15 @@ export const getAWSCredentials = async (auth0AccessToken: string) => {
   };
 
   // Step 1: Get the AWS Cognito Identity ID
-  const identityIdResponse = await cognitoIdentity.getId({
-    IdentityPoolId: identityPoolId,
-    Logins: logins,
-  }).promise();
+  // const identityIdResponse = await cognitoIdentity.getId({
+  //   IdentityPoolId: identityPoolId,
+  //   Logins: logins,
+  // }).promise();
 
   // Step 2: Get AWS credentials for the identity
   const credentialsResponse = await cognitoIdentity.getCredentialsForIdentity({
-    IdentityId: identityIdResponse.IdentityId!,
+    CustomRoleArn: "arn:aws:iam::277707134730:oidc-provider/dev-f21n5m3ogrqn451x.us.auth0.com",
+    IdentityId: "eu-north-1:5b115bab-a35e-4474-8eb2-c29fab158238",
     Logins: logins,
   }).promise();
 

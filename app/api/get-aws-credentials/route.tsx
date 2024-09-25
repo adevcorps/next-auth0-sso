@@ -1,37 +1,33 @@
-// import { withApiAuthRequired } from '@auth0/nextjs-auth0';
-// import { getAWSCredentials } from '../../utils/aws';
 import { NextResponse } from 'next/server';
+import { CognitoIdentityClient, GetIdCommand, GetCredentialsForIdentityCommand } from '@aws-sdk/client-cognito-identity';
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 
-// export async function withApiAuthRequired(req : any){
-//   const { accessToken } = req.body; //
-//   if(req.method !== 'POST') {
-//     return NextResponse.json({ error: 'Method Not Allowed' })
-//   }
-//   try {
-//     const awsCredentials = await getAWSCredentials(accessToken);
-//     return NextResponse.json(awsCredentials, {status: 200});
-//   } catch (error) {
-//     console.error('Error exchanging Auth0 token for AWS credentials:', error);
-//     return NextResponse.json({ error: 'Failed to get AWS credentials' }, {status: 500});
-//   }
-// };
-
-import { withApiAuthRequired } from '@auth0/nextjs-auth0';
-import { getAWSCredentials } from '../../utils/aws';
-
-export default withApiAuthRequired(async (req : any, res) => {
-  // Check if the request method is POST
-  if (req.method !== 'POST') {
-    return NextResponse.json({ error: 'Method Not Allowed' });
-  }
-
-  const { accessToken } = req.body; // Expecting the access token from the request body
-
+const identityPoolId = 'us-east-1:3834caa7-4e08-4569-92ff-236c9b736926'; // Replace with your Cognito Identity Pool ID
+export async function POST(req: Request) {
   try {
-    const awsCredentials = await getAWSCredentials(accessToken);
-    return NextResponse.json(awsCredentials);
+    const  {idToken} = await req.json(); // Parse the request body
+
+    // Initialize CognitoIdentityClient
+    const cognitoClient = new CognitoIdentityClient({ region: "us-east-1" });
+    const logins = {
+      'dev-f21n5m3ogrqn451x.us.auth0.com': idToken, // Replace with your Auth0 domain
+    };
+    const credentials = await fromCognitoIdentityPool({
+      clientConfig: { region: "us-east-1" },
+      identityPoolId: identityPoolId,
+      logins:logins
+    });
+
+    const awsCredentials = await credentials();
+    const serializableCredentials = {
+      accessKeyId: awsCredentials.accessKeyId,
+      secretAccessKey: awsCredentials.secretAccessKey,
+      sessionToken: awsCredentials.sessionToken,
+      expiration: awsCredentials.expiration,
+    };
+    return NextResponse.json(serializableCredentials);
   } catch (error) {
     console.error('Error exchanging Auth0 token for AWS credentials:', error);
-    return NextResponse.json({ error: 'Failed to get AWS credentials' });
+    return NextResponse.json({ error: error}, { status: 500 });
   }
-});
+}

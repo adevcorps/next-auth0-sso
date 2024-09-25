@@ -11,28 +11,26 @@ export default function Home() {
     const fetchAWSCredentials = async () => {
       if (user) {
         // Call the API to get the Auth0 access token
-        const tokenResponse = await fetch('/api/get-auth0-token');
-        const { accessToken } = await tokenResponse.json();
-
-        // Now use the access token to get AWS credentials
-        const awsCredentialsResponse = await fetch('/api/get-aws-credentials', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'x-www-form-urlencoded',
-          },
-          body: JSON.stringify({ accessToken }), // Pass the access token
-        });
-
-        if (!awsCredentialsResponse.ok) {
-          const errorMessage = await awsCredentialsResponse.text();
-          console.error('Error fetching AWS credentials:', errorMessage);
-          return;
+        const idTokenResponse = await fetch('/api/auth/idToken');
+        const { idToken } = await idTokenResponse.json();
+        if(idTokenResponse.ok){
+          const awsCredentialsResponse = await fetch('/api/get-aws-credentials', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({idToken}), // Pass the access token
+          });
+  
+          if (!awsCredentialsResponse.ok) {
+            const errorMessage = await awsCredentialsResponse.text();
+            console.error('Error fetching AWS credentials:', errorMessage);
+            return;
+          }
+  
+          const awsCredentials = await awsCredentialsResponse.json();
+          console.log('AWS Credentials:', awsCredentials);
         }
-
-        const awsCredentials = await awsCredentialsResponse.json();
-        console.log('AWS Credentials:', awsCredentials);
-
-        // You can now use the awsCredentials to access AWS resources
       }
     };
 
