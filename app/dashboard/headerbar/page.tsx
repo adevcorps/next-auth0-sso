@@ -1,5 +1,5 @@
 'use client'
-import React, {FunctionComponent} from 'react';
+import React from 'react';
 import Image from 'next/image';
 import imgLogo from '../../../assets/img/logo.png'
 import { FiMenu, FiX } from 'react-icons/fi'; // For mobile menu toggle icons
@@ -11,8 +11,8 @@ interface HeaderBarProps {
     toggleVisibility: () => void;
     isOpen : boolean;
 }
-const HeaderBar: FunctionComponent<HeaderBarProps> = ({toggleVisibility, isOpen}) => {
-    const hanlder = () => {
+const HeaderBar: React.FC<HeaderBarProps> = ({toggleVisibility, isOpen}) => {
+    const handleToggle = () => {
         toggleVisibility();
     }
     return (
@@ -25,12 +25,12 @@ const HeaderBar: FunctionComponent<HeaderBarProps> = ({toggleVisibility, isOpen}
                 style={{zIndex:`1000`, cursor: `pointer`, width: "122px", height: "73px"}}
             />
             <div className="lg:hidden p-4">
-                <button onClick={hanlder}>
+                <button onClick={handleToggle}>
                     {isOpen ? <FiX className='text-white' size={24} /> : <FiMenu className='text-white' size={24} />} {/* Toggle between menu and close icons */}
                 </button>
             </div>
             {/* Overlay for mobile sidebar when open */}
-            {isOpen && <div onClick={hanlder} className="fixed inset-0 bg-black opacity-50 z-40 lg:hidden"></div>}
+            {isOpen && <div onClick={handleToggle} className="fixed inset-0 bg-black opacity-50 z-40 lg:hidden"></div>}
         </div>
     )
 }
