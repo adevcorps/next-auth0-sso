@@ -16,8 +16,9 @@ const config: Config = {
     },
     fontFamily: {
       // Array format:
-      'sans': ['Helvetica', 'Arial', 'sans-serif'],
-      'roboto': ['Roboto', 'sans-serif']
+      'sans': ['Open Sans', 'sans-serif'],
+      'roboto': ['Roboto', 'sans-serif'],
+      'lato': ['Lato', 'sans-serif'], 
     }
   },
   plugins: [],
