@@ -9,9 +9,9 @@ import { FiMenu, FiX } from 'react-icons/fi'; // For mobile menu toggle icons
 
 interface HeaderBarProps {
     toggleVisibility: () => void;
-    isOpen : boolean;
+    isOpen: boolean;
 }
-const HeaderBar: React.FC<HeaderBarProps> = ({toggleVisibility, isOpen}) => {
+export default function HeaderBar({ toggleVisibility, isOpen }: HeaderBarProps) {
     const handleToggle = () => {
         toggleVisibility();
     }
@@ -22,7 +22,7 @@ const HeaderBar: React.FC<HeaderBarProps> = ({toggleVisibility, isOpen}) => {
                 width="122"
                 height="73"
                 alt={`header`}
-                style={{zIndex:`1000`, cursor: `pointer`, width: "122px", height: "73px"}}
+                style={{ zIndex: `1000`, cursor: `pointer`, width: "122px", height: "73px" }}
             />
             <div className="lg:hidden p-4">
                 <button onClick={handleToggle}>
@@ -33,6 +33,4 @@ const HeaderBar: React.FC<HeaderBarProps> = ({toggleVisibility, isOpen}) => {
             {isOpen && <div onClick={handleToggle} className="fixed inset-0 bg-black opacity-50 z-40 lg:hidden"></div>}
         </div>
     )
-}
-
-export default HeaderBar
+} 
