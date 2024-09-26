@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import hubspot from '@hubspot/api-client';
+import { Client as HubspotClient } from '@hubspot/api-client';
+import { NextResponse } from 'next/server';
 
-const hubspotClient = new hubspot.Client({ accessToken: process.env.HUBSPOT_ACCESS_TOKEN });
+const hubspotClient = new HubspotClient({ accessToken: process.env.HUBSPOT_ACCESS_TOKEN });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
@@ -19,10 +20,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             },
         };
 
-        const response:any = await hubspotClient.crm.contacts.basicApi.update(contactId, updatedContactData); // Update contact
-        const updatedContact = response.body;
+        const response = await hubspotClient.crm.contacts.basicApi.update(contactId, updatedContactData); // Update contact
 
-        res.status(200).json(updatedContact); // Respond with updated contact info
+        return NextResponse.json(response); // Respond with updated contact info
     } catch (error) {
         res.status(500).json({ error: error });
     }
