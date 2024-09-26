@@ -14,7 +14,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       <HeaderBar toggleVisibility={toggleVisibility} isOpen={isOpen}/>
       {/* Sidebar */}
       <div className='flex'>
-        <Sidebar isOpen={isOpen}/>
+        <Sidebar toggleVisibility={toggleVisibility} isOpen={isOpen}/>
         {/* Main content */}
         <div className="flex-grow">
           {children}

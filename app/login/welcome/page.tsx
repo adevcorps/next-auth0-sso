@@ -106,7 +106,7 @@ const Welcome = ({ }) => {
                 </div>
                 <div className="px-2 text-center">
                     <div className="px-12 pt-4">
-                        <h1 className="text-[40px] leading-10 font-medium">Welcome</h1>
+                        <h1 className="text-[40px] leading-10 font-medium text-white">Welcome</h1>
                         <div className="relative z-0 w-full mt-16 mb-5 group">
                             <Link href={`/dashboard/profile`}>
                             {/* <button onClick={checkUserInfoAndGetContact} className="w-full p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">Go to VSE Dashboard</button> */}
@@ -114,7 +114,7 @@ const Welcome = ({ }) => {
                             </Link>
                         </div>
                         <div className="relative z-0 w-full mb-5 group">
-                            <button className="w-full p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">Go to My Account</button>
+                            <button className="w-full p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">External Url</button>
                         </div>
                     </div>
                 </div>

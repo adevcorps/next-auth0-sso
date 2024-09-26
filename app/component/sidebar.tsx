@@ -3,23 +3,26 @@ import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 interface SideBarProps{
-  isOpen: boolean
+    toggleVisibility: () => void;
+    isOpen: boolean;
 }
-const Sidebar: FunctionComponent<SideBarProps> = ({isOpen}) => {
+export default function Sidebar ({toggleVisibility, isOpen} : SideBarProps)  {
     const pathname = usePathname();// State to toggle sidebar on mobile
-
+    const handlerToggle = () => {
+        toggleVisibility();
+    }
     return (
         <div className="flex h-full">
             {/* Sidebar */}
             <div className={`bg-white text-[#0D0040] w-[335px] h-screen pt-[74px] pl-[75px] flex-col transition-transform duration-300 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} fixed lg:relative z-50`}>
                 <nav className="flex-grow">
                     <ul>
-                        <li className='mb-4'>
+                        <li className='mb-4' onClick={handlerToggle}>
                             <Link href="/dashboard/profile" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 leading-[25.2px] ${pathname === '/dashboard/profile' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 Account Profile
                             </Link>
                         </li>
-                        <li className='mb-4'>
+                        <li className='mb-4' onClick={handlerToggle}>
                             <Link href="/dashboard/billing" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 leading-[25.2px] ${pathname === '/dashboard/billing' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 Billing & Subscription
                             </Link>
@@ -61,5 +64,3 @@ const Sidebar: FunctionComponent<SideBarProps> = ({isOpen}) => {
         </div>
     );
 }
-
-export default Sidebar;

@@ -10,7 +10,7 @@ const Profile = () => {
     // console.log(contactData)
     return (
         <>
-            <div className="p-[68px] border-l-[1px] border-l-[#E1E1E1] border-b border-b-[#E1E1E1]">
+            <div className="mt-[113px] md:mt-0 lg:p-[68px] sm:p-[40px] xs:p-[40px] xxs:p-[40px] border-l-[1px] border-l-[#E1E1E1] border-b border-b-[#E1E1E1]">
                 <h1 className="text-[40px] font-bold leading-[52.8px] text-[#0D0040]">Hi David</h1>
                 {/* <h1 className="text-4xl font-bold text-[#0D0040]">Hi {contactData.name ? contactData.name : contactData.email}</h1> */}
                 <div className="flex items-center mt-4">
@@ -21,7 +21,7 @@ const Profile = () => {
                 </div>
             </div>
 
-            <div className="py-[68px] pl-[68px] pr-[184px] border-l-[1px] lg:pr-[68px] md:pr-[68px] sm:pr-[68px] xs:pr-[68px] xxs:pr-[68px] border-l-[#E1E1E1] border-b border-b-[#E1E1E1]">
+            <div className="py-[68px] pl-[68px] pr-[184px] border-l-[1px] xl:pr-[184px] lg:px-[68px] md:px-[40px] sm:px-[20px] xs:px-[20px] xxs:px-[20px] border-l-[#E1E1E1] border-b border-b-[#E1E1E1]">
                 <p className="text-xl font-semibold text-[#0D0040]">Account Profile</p>
                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-6 mb-[27px]">
                     <div className="sm:col-span-3">
@@ -70,14 +70,16 @@ const Profile = () => {
                 </div>
 
                 <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-6">
+                    <div className="md:w-[219px]">
                         <button
-                            className="w-[219px] h-[61px] p-2 rounded-lg bg-[#0D0040] active:bg-[#0D0040] hover:bg-[#0d0040e7] text-white">
+                            className="w-full h-[61px] rounded-lg bg-[#0D0040] active:bg-[#0D0040] hover:bg-[#0d0040e7] text-white">
                             Save
                         </button>
+                    </div>
                 </div>
             </div>
 
-            <div className="border-b flex justify-between border-l-[1px] border-l-[#E1E1E1] border-b-[#E1E1E1] py-[68px] pl-[68px] pr-[184px] lg:pr-[68px] md:pr-[68px] sm:pr-[68px] xs:pr-[68px] xxs:pr-[68px]">
+            <div className="border-b flex justify-between border-l-[1px] border-l-[#E1E1E1] border-b-[#E1E1E1] py-[68px] pl-[68px] pr-[184px] xl:pr-[184px] lg:px-[68px] md:px-[40px] sm:px-[20px] xs:px-[20px] xxs:px-[20px]">
                 <p className="text-xl font-semibold text-[#0D0040]">Password Management</p>
                 <p className="text-sm font-semibold text-[#171100] underline cursor-pointer">Change Password</p>
             </div>
