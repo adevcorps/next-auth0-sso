@@ -1,15 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { Client as HubspotClient } from '@hubspot/api-client';
 import { NextResponse } from 'next/server';
 
 const hubspotClient = new HubspotClient({ accessToken: process.env.HUBSPOT_ACCESS_TOKEN });
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: Request) {
     if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Method Not Allowed' });
+        return NextResponse.json({ error: 'Method Not Allowed' });
     }
-
-    const { contactId, email, firstname, lastname } = req.body; // Getting updated contact info from request body
+    const { contactId, email, firstname, lastname } = await req.json(); // Getting updated contact info from request body
 
     try {
         const updatedContactData = {
@@ -24,6 +22,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         return NextResponse.json(response); // Respond with updated contact info
     } catch (error) {
-        res.status(500).json({ error: error });
+        return NextResponse.json({ error: error });
     }
 }
