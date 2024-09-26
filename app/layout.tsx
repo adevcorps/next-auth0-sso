@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Open_Sans, Lato } from 'next/font/google';
 import "./globals.css";
 import { UserProvider } from "@auth0/nextjs-auth0/client";

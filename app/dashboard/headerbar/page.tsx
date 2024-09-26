@@ -9,7 +9,7 @@ import { FiMenu, FiX } from 'react-icons/fi'; // For mobile menu toggle icons
 
 interface HeaderBarProps {
     toggleVisibility: () => void,
-    isOpen : Boolean
+    isOpen : boolean
 }
 const HeaderBar: FunctionComponent<HeaderBarProps> = ({toggleVisibility, isOpen}) => {
     const hanlder = () => {

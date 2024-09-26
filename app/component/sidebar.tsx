@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 interface SideBarProps{
-  isOpen: Boolean
+  isOpen: boolean
 }
 const Sidebar: FunctionComponent<SideBarProps> = ({isOpen}) => {
     const pathname = usePathname();// State to toggle sidebar on mobile
