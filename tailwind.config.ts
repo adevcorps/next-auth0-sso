@@ -14,11 +14,22 @@ const config: Config = {
         authformbackground: "#0D0040"
       },
     },
+    screens: {
+      'xxs': '350px',
+      'xs': '480px', // Custom breakpoint
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     fontFamily: {
       // Array format:
-      'sans': ['Open Sans', 'sans-serif'],
-      'roboto': ['Roboto', 'sans-serif'],
-      'lato': ['Lato', 'sans-serif'], 
+      // 'roboto': ['Roboto', 'sans-serif'],
+      // 'lato': ['Lato', 'sans-serif'], 
+      "roboto" : ['Roboto', 'sans-serif'],
+      "lato" : "var(--font-lato)",
+      'sans': "var(--font-open-sans)",
     }
   },
   plugins: [],
