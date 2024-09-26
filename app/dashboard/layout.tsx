@@ -1,7 +1,7 @@
 'use client'
 import React, { ReactNode, useState } from 'react';
 import Sidebar from '../component/sidebar'
-import HeaderBar from './headerbar/page';
+import HeaderBar from './headerbar/HeaderBar';
 import { bool } from 'aws-sdk/clients/signer';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
