@@ -22,7 +22,7 @@ const Profile = ({ }) => {
                 <h1 className="text-4xl font-bold text-[#0D0040]">Hi David</h1>
                 {/* <h1 className="text-4xl font-bold text-[#0D0040]">Hi {contactData.name ? contactData.name : contactData.email}
     </h1> */}
-                <div className="flex item-center mt-5">
+                <div className="flex item-center mt-5" style={{alignItems: 'center'}}>
                     <p className="text-base font-[600] text-[#0D0040]">Subscription status &nbsp; &nbsp;
                         <span className="text-[#00A651]">Active
                         </span>&nbsp;
