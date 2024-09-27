@@ -4,7 +4,7 @@ import React from 'react';
 import logo from '../../../assets/img/logo.png';
 import Image from "next/image";
 import Link from "next/link";
-import HomeHeader from '@/app/component/homHeaderBar';
+// import HomeHeader from '@/app/component/homHeaderBar';
 // import { useRouter } from "next/navigation";
 // import { useUser } from '@auth0/nextjs-auth0/client';
 
@@ -96,7 +96,6 @@ const Welcome = ({ }) => {
     // if(isLoading) return(<div>Loading...</div>)
     return (
         <div className='h-[100vh]'>
-            <HomeHeader />
             <div className="h-full bg-gradient-to-r from-[#14005F80] to-[#0042A880] grid place-items-center">
                 <div className="w-10/12 sm:w-[510px] h-[482px] rounded-lg bg-authformbackground p-2 max-h-[680px]">
                     <div className="w-full flex justify-center py-4">

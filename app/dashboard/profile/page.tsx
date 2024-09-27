@@ -1,6 +1,6 @@
 'use client'
 // Needed for client-side components in Next.js App Router (v13+)
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { ChangePassword } from "@/app/component/changePassword";
 // import { useUser } from '@auth0/nextjs-auth0/client';
 
@@ -9,11 +9,17 @@ import { ChangePassword } from "@/app/component/changePassword";
 const Profile = () => {
     // const { user } = useUser();
     const [isPass, setIsPass] = useState<boolean>(false);
-
+    // const [hubspotUserInfo, setHubSpotUserInfo] = useState<Object>({});
     // const searchParams = useSearchParams();
     // const queryData = searchParams.get('queryData');
-    // const contactData = queryData ? JSON.parse(decodeURIComponent(queryData)) : null;
-
+    
+    // useEffect(() => {
+    //     if(!localStorage.getItem('contactInfo')) {
+    //         const contactData = queryData ? JSON.parse(decodeURIComponent(queryData)) : null;
+    //         localStorage.setItem('contactInfo', JSON.stringify(contactData));
+    //         setHubSpotUserInfo(JSON.parse(contactData));
+    //     }        
+    // })
     // console.log(contactData)
 
     // const handleTogglePasswordModal = () => {
