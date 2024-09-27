@@ -36,7 +36,7 @@ const Login = ({ }) => {
                                 </Link>
                             </div>
                             <div className="relative z-0 w-full mt-[10px] sm:mt-[30px]">
-                                <Link href={`/welcome`}>
+                                <Link href={`/login/welcome`}>
                                     <button className="w-full h-[40px] sm:h-[61.5px] p-1 sm:p-[19px] text-[18px] font-lato font-bold text-black rounded-lg bg-[#FFD601]">Login</button>
                                 </Link>
                             </div>

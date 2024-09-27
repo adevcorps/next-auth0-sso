@@ -95,10 +95,10 @@ const Welcome = ({ }) => {
 
     // if(isLoading) return(<div>Loading...</div>)
     return (
-        <>
+        <div className='h-[100vh]'>
             <HomeHeader />
-            <div className="h-[100vh] bg-gradient-to-r from-[#14005F80] to-[#0042A880] grid place-items-center">
-                <div className="h-[482px] xl:w-4/12 lg:w-4/12 md:w-3/6 sm:w-9/12 rounded-lg bg-authformbackground p-2 max-h-[680px]">
+            <div className="h-full bg-gradient-to-r from-[#14005F80] to-[#0042A880] grid place-items-center">
+                <div className="w-10/12 sm:w-[510px] h-[482px] rounded-lg bg-authformbackground p-2 max-h-[680px]">
                     <div className="w-full flex justify-center py-4">
                         <Image
                             src={logo.src}
@@ -111,19 +111,18 @@ const Welcome = ({ }) => {
                         <div className="px-12 pt-4">
                             <h1 className="text-[40px] leading-10 font-medium text-white">Welcome</h1>
                             <div className="relative z-0 w-full mt-16 mb-5 group">
-                                    {/* <button onClick={checkUserInfoAndGetContact} className="w-full p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">Go to VSE Dashboard</button> */}
-                                    <button className="w-full font-lato p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">Go to VSE Dashboard</button>
+                                    <button className="w-full font-lato p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601] h-[45px] sm:h-[61.5px]">Go to VSE Dashboard</button>
                             </div>
                             <div className="relative z-0 w-full mb-5 group">
                                 <Link href={'/dashboard/profile'}>
-                                <button className="w-full p-2.5 text-lg font-lato font-bold text-black rounded-lg bg-[#FFD601]">Go to My Account</button>
+                                <button className="w-full p-2.5 sm:h-[61.5px] text-lg font-lato font-bold text-black rounded-lg bg-[#FFD601]">Go to My Account</button>
                                 </Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
