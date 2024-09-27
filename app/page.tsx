@@ -1,13 +1,13 @@
 'use client'
 // import React, { useState } from 'react';
 import React from 'react';
-import { useUser } from '@auth0/nextjs-auth0/client';
+// import { useUser } from '@auth0/nextjs-auth0/client';
 import Login from "./login/page";
 // import Welcome from './login/welcome/page';
 // import { useEffect } from 'react';
 
 export default function Home() {
-  const { user, isLoading } = useUser();
+  // const { user, isLoading } = useUser();
   // const [awsCredenTialInfo, setAwsCredentialInfo] = useState({});
   // const [awsLoading, setAwsLoading] = useState(false);
   // useEffect(() => {

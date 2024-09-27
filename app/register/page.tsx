@@ -6,8 +6,8 @@ import v1 from '../../assets/img/Vector1.png'
 import v2 from '../../assets/img/Vector2.png'
 import v3 from '../../assets/img/Vector3.png'
 
-const vArray1 = [v1, v2, v1, v3, v2, v3, v2, v3];
-const vArray2 = [null, v1, null, v1, v2, null, v2, v2, null, v3];
+// const vArray1 = [v1, v2, v1, v3, v2, v3, v2, v3];
+// const vArray2 = [null, v1, null, v1, v2, null, v2, v2, null, v3];
 
 const RegisterPage = () => {
     return (
