@@ -16,7 +16,7 @@ export default function HeaderBar({ toggleVisibility, isOpen }: HeaderBarProps) 
         toggleVisibility();
     }
     return (
-        <div className={`w-full h-[113px] flex items-center justify-between bg-[url('../assets/img/Background.png')] lg:pl-[71px] md:pl-[20px] sm:pl-[20px] xs:pl-[20px] fixed md:relative z-1000`}>
+        <div className={`w-full h-[113px] flex items-center justify-between  lg:pl-[71px] md:pl-[20px] sm:pl-[20px] xs:pl-[20px] fixed md:relative z-1000 simple-linear`}>
             <Image
                 src={imgLogo.src}
                 width="122"

@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lato.variable} ${openSans.variable} antialiased`}
+        className={`${lato.className} ${openSans.variable} antialiased`}
       >
         <UserProvider>
           {children}

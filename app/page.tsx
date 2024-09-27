@@ -3,7 +3,7 @@
 import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Login from "./login/page";
-import Welcome from './login/welcome/page';
+// import Welcome from './login/welcome/page';
 // import { useEffect } from 'react';
 
 export default function Home() {
@@ -48,15 +48,16 @@ export default function Home() {
 
   // }, [user, isLoading])
 
-  if (isLoading) return (<div>Loading...</div>);
+  // if (isLoading) return (<div>Loading...</div>);
 
   return (
     <>
-      {!user ? (
+      <Login />
+      {/* {!user ? (
         <Login />
       ) : (
         <Welcome />
-      )}
+      )} */}
       {/* {JSON. stringify(awsCredenTialInfo) === '{}' ? (
         <Login />
       ) : (

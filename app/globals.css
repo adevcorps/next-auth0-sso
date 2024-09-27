@@ -61,3 +61,9 @@ select:focus ~ label {
   color: rgba(0, 0, 0, var(--tw-text-opacity));
   left: 0px;
 }
+
+.simple-linear {
+  /* background: linear-gradient(to right, #0D0040 20%, #3806FA 20%, #0057A8 10%, #6F8E5F 5%, #BBB42D 20%, #BBB42D 15%, #BBB42D 10%); */
+  background: linear-gradient(to right, #0D0040 10%, #3806FA 35%, #0057A8 50%, #6F8E5F 65%, #BBB42D 80%, #FFD601 90%, #FF9B04 100%);
+
+}

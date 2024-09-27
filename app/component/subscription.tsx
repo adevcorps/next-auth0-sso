@@ -16,7 +16,7 @@ const Subscription = ({}) => {
                 <p className='text-[12px] sm:text-[16px] font-lato font-[600] leading-[19.2px] mb-2 text-[#0D0040]'></p>
                 <p className='text-[12px] sm:text-[16px] font-lato font-[600] leading-[25.2px] text-[#949494] absolute bottom-0'>Subscription Name</p>
             </div>
-            <div className='w-3/12 text-center md:text-left'>
+            <div className='w-3/12 text-center md:text-center'>
                 <p className='text-[12px] sm:text-[16px] font-[600] leading-[19.2px] mb-0 md:mb-2 text-[#0D0040]'>Total</p>
                 <p className='text-[12px] sm:text-[16px] font-lato font-[600] leading-[25.2px] text-[#949494]'>$58.61</p>
             </div>

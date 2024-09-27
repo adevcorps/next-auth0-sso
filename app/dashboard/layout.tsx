@@ -5,7 +5,7 @@ import HeaderBar from './headerbar/HeaderBar';
 import { bool } from 'aws-sdk/clients/signer';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState<bool>(false); 
+const [isOpen, setIsOpen] = useState<bool>(false); 
   const toggleVisibility = () => {
     setIsOpen( !isOpen);
   }
