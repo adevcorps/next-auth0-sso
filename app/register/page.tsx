@@ -6,7 +6,6 @@ import Link from "next/link";
 import v1 from '../../assets/img/Vector1.png'
 import v2 from '../../assets/img/Vector2.png'
 import v3 from '../../assets/img/Vector3.png'
-import HomeHeader from "../component/homHeaderBar";
 
 
 // const vArray1 = [v1, v2, v1, v3, v2, v3, v2, v3];
