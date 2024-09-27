@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import logo from '../../assets/img/logo.png';
 import Image from "next/image";
@@ -5,6 +6,8 @@ import Link from "next/link";
 import v1 from '../../assets/img/Vector1.png'
 import v2 from '../../assets/img/Vector2.png'
 import v3 from '../../assets/img/Vector3.png'
+import HomeHeader from "../component/homHeaderBar";
+
 
 // const vArray1 = [v1, v2, v1, v3, v2, v3, v2, v3];
 // const vArray2 = [null, v1, null, v1, v2, null, v2, v2, null, v3];
@@ -12,6 +15,7 @@ import v3 from '../../assets/img/Vector3.png'
 const RegisterPage = () => {
     return (
         <div className="relative">
+            <HomeHeader />
             <div className="absolute hidden xl:block left-[84px] top-[366px] box-border w-[219.91px] ">
                 <div className="w-full flex justify-between mb-[10px]">
                     <Image
