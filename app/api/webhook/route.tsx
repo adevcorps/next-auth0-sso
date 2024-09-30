@@ -1,30 +1,32 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-}
+
+
+// export const config = {
+//     api: {
+//         bodyParser: false,
+//     },
+// }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2024-06-20',
 })
 
-type EventName =
-	| "customer.subscription.resumed";
+// type EventName =
+// 	| "customer.subscription.resumed";
 
 async function handleStripeWebhook(body: any) {
-	const mode = body.data?.object?.mode;
-	const id = body.data?.object?.id;
-	const obj = body.data?.object?.object;
-	const stat = body.data?.object?.status;
-	const status = body.data?.object?.payment_status;
-	const payment_intent = body.data?.object?.payment_intent;
-	const subId = body.data?.object?.subscription;
-	const stripeInvoiceId = body.data?.object?.invoice;
-	const user = body.data?.object?.metadata?.userId;
-	const meta = body.data?.object?.metadata;
-	const stripe_invoice = body.data?.object?.invoice;
+	// const mode = body.data?.object?.mode;
+	// const id = body.data?.object?.id;
+	// const obj = body.data?.object?.object;
+	// const stat = body.data?.object?.status;
+	// const status = body.data?.object?.payment_status;
+	// const payment_intent = body.data?.object?.payment_intent;
+	// const subId = body.data?.object?.subscription;
+	// const stripeInvoiceId = body.data?.object?.invoice;
+	// const user = body.data?.object?.metadata?.userId;
+	// const meta = body.data?.object?.metadata;
+	// const stripe_invoice = body.data?.object?.invoice;
 	const type = body.type;
 
 
