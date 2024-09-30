@@ -113,13 +113,13 @@ const Welcome = ({ }) => {
                     </div>
                     <div className="px-2 text-center">
                         <div className="px-12 pt-4">
-                            <h1 className="text-[40px] leading-10 font-medium text-white">Welcome</h1>
+                            <h1 className="text-[40px] leading-10 f-roboto font-[500] text-white">Welcome</h1>
                             <div className="relative z-0 w-full mt-16 mb-5 group">
-                                <button className="w-full font-lato p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601] h-[45px] sm:h-[61.5px]">Go to VSE Dashboard</button>
+                                <button className="w-full f-lato p-2.5 text-[18px] font-bold text-black rounded-lg bg-[#FFD601] h-[45px] sm:h-[61.5px]">Go to VSE Dashboard</button>
                             </div>
                             <div className="relative z-0 w-full mb-5 group">
                                 {/* <Link href={'/dashboard/profile'}> */}
-                                <button className="w-full p-2.5 sm:h-[61.5px] text-lg font-lato font-bold text-black rounded-lg bg-[#FFD601]" onClick={checkUserInfoAndGetContact}>Go to My Account</button>
+                                <button className="w-full p-2.5 sm:h-[61.5px] text-[18px] f-lato font-bold text-black rounded-lg bg-[#FFD601]" onClick={checkUserInfoAndGetContact}>Go to My Account</button>
                                 {/* </Link> */}
                             </div>
                         </div>
