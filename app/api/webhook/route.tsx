@@ -15,7 +15,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 // type EventName =
 // 	| "customer.subscription.resumed";
 
-async function handleStripeWebhook(body: any) {
+async function handleStripeWebhook(body: Stripe.Event) {
 	// const mode = body.data?.object?.mode;
 	// const id = body.data?.object?.id;
 	// const obj = body.data?.object?.object;
@@ -224,6 +224,7 @@ export async function POST(req: Request) {
         let event;
         try {
             event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
+			// console.log("event type")
         } catch (err) {
             console.error(`⚠️  Webhook signature verification failed.`, err);
             return new Response(
