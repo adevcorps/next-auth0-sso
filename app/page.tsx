@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 // import Login from "./login/page";
 import Welcome from './login/welcome/page';
@@ -10,8 +10,8 @@ import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
 export default withPageAuthRequired(function Home() {
   const { user, isLoading } = useUser();
-  const [awsCredenTialInfo, setAwsCredentialInfo] = useState({});
-  const [awsLoading, setAwsLoading] = useState(false);
+  // const [awsCredenTialInfo, setAwsCredentialInfo] = useState({});
+  // const [awsLoading, setAwsLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -37,9 +37,9 @@ export default withPageAuthRequired(function Home() {
               }
 
               const awsCredentials = await awsCredentialsResponse.json();
-              setAwsCredentialInfo(awsCredentials);
+              // setAwsCredentialInfo(awsCredentials);
               console.log('AWS Credentials:', awsCredentials);
-              setAwsLoading(false);
+              // setAwsLoading(false);
             }
           }
         };
