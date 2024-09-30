@@ -96,7 +96,7 @@ const Profile = () => {
                             <label htmlFor="first-name" className="f-lato block text-[16px] font-[600] leading-[19.2px] text-gray-900 f-lato">First Name</label>
                             <div className="mt-[5px] md:mt-[11px]">
                                 <input type="text" id="first-name" autoComplete="given-name"
-                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400 sm:text-sm sm:leading-6" value={hubspotUserInfo.firstname!} onChange={(e) => changeProfileHandler('firstname', e)}/>
+                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400" value={hubspotUserInfo.firstname!} onChange={(e) => changeProfileHandler('firstname', e)}/>
                             </div>
                         </div>
 
@@ -104,7 +104,7 @@ const Profile = () => {
                             <label htmlFor="last-name" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900 f-lato">Last Name</label>
                             <div className="mt-[5px] md:mt-[11px]">
                                 <input type="text" id="last-name" autoComplete="given-name"
-                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400 sm:text-sm sm:leading-6" value={hubspotUserInfo.lastname!} onChange={(e) => changeProfileHandler('lastname', e)} />
+                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400" value={hubspotUserInfo.lastname!} onChange={(e) => changeProfileHandler('lastname', e)} />
                             </div>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ const Profile = () => {
                             <label htmlFor="company-name" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900 f-lato">Company Name</label>
                             <div className="mt-[5px] md:mt-[11px]">
                                 <input type="text" id="company-name" autoComplete="given-name"
-                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400 sm:text-sm sm:leading-6" value={hubspotUserInfo.company!} onChange={(e) => changeProfileHandler('company', e)}/>
+                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400" value={hubspotUserInfo.company!} onChange={(e) => changeProfileHandler('company', e)}/>
                             </div>
                         </div>
 
@@ -122,7 +122,7 @@ const Profile = () => {
                             <label htmlFor="job-title" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900 f-lato">Job Title</label>
                             <div className="mt-[5px] md:mt-[11px]">
                                 <input type="text" id="job-title" autoComplete="given-name"
-                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400 sm:text-sm sm:leading-6" value={hubspotUserInfo.jobtitle!} onChange={(e) => changeProfileHandler('jobtitle', e)}/>
+                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400" value={hubspotUserInfo.jobtitle!} onChange={(e) => changeProfileHandler('jobtitle', e)}/>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@ const Profile = () => {
                             <label htmlFor="email-address" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900 f-lato">Email Address</label>
                             <div className="mt-[5px] md:mt-[11px]">
                                 <input type="text" id="email-address" autoComplete="given-name"
-                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400 sm:text-sm sm:leading-6" disabled value={hubspotUserInfo.email!}/>
+                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400" disabled value={hubspotUserInfo.email!}/>
                             </div>
                         </div>
                     </div>
