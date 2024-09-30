@@ -1,3 +1,4 @@
+'use client'
 export function LoadingSpin(){
     return (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-50 h-full w-full flex items-center justify-center">

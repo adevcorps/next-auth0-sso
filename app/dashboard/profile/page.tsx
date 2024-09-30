@@ -25,7 +25,6 @@ const Profile = () => {
         // console.log(queryData);
         if(queryData != null) {
             const contactData = queryData ? JSON.parse(decodeURIComponent(queryData)) : null;
-            alert(contactData.firstname)
             localStorage.setItem('contactInfo', JSON.stringify(contactData));
             setHubSpotUserInfo(contactData);
         }else {
