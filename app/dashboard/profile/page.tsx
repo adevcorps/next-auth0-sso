@@ -1,25 +1,62 @@
 'use client'
 // Needed for client-side components in Next.js App Router (v13+)
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import { ChangePassword } from "@/app/component/changePassword";
 // import { useUser } from '@auth0/nextjs-auth0/client';
 
-// import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 const Profile = () => {
     // const { user } = useUser();
     const [isPass, setIsPass] = useState<boolean>(false);
-    // const [hubspotUserInfo, setHubSpotUserInfo] = useState<Object>({});
-    // const searchParams = useSearchParams();
-    // const queryData = searchParams.get('queryData');
+    const [hubspotUserInfo, setHubSpotUserInfo] = useState({
+        contactId:"",
+        firstname:"",
+        lastname:"",
+        email:"",
+        jobtitle:"",
+        company:"",
+    });
+    const searchParams = useSearchParams();
+    const queryData = searchParams.get('queryData');
     
-    // useEffect(() => {
-    //     if(!localStorage.getItem('contactInfo')) {
-    //         const contactData = queryData ? JSON.parse(decodeURIComponent(queryData)) : null;
-    //         localStorage.setItem('contactInfo', JSON.stringify(contactData));
-    //         setHubSpotUserInfo(JSON.parse(contactData));
-    //     }        
-    // })
+
+    useEffect(() => {
+        // console.log(queryData);
+        if(queryData != null) {
+            const contactData = queryData ? JSON.parse(decodeURIComponent(queryData)) : null;
+            alert(contactData.firstname)
+            localStorage.setItem('contactInfo', JSON.stringify(contactData));
+            setHubSpotUserInfo(contactData);
+        }else {
+            setHubSpotUserInfo(JSON.parse(localStorage.getItem('contactInfo')!));
+        }
+    }, [])
+
+    const changeProfileHandler = (type:string, e:React.ChangeEvent<HTMLInputElement>)=> {
+        const value = e.target.value;
+        setHubSpotUserInfo({...hubspotUserInfo, [type] :value})
+    }
+
+    const saveHubspotInfo = async () => {
+
+        console.log(hubspotUserInfo);
+        const editRes = await fetch('/api/hubspot/edit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(hubspotUserInfo),
+        });
+        const data = await editRes.json();
+        if(editRes.ok ){
+            if(data.createdAt && data.createdAt != '') {
+                alert("Data changed successfully!!");
+            }
+        } else {
+            console.log("Error occurred!!!");
+        }
+    }
     // console.log(contactData)
 
     // const handleTogglePasswordModal = () => {
@@ -60,7 +97,7 @@ const Profile = () => {
                             <label htmlFor="first-name" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900 font-lato">First Name</label>
                             <div className="mt-[11px]">
                                 <input type="text" id="first-name" autoComplete="given-name"
-                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" />
+                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" value={hubspotUserInfo.firstname!} onChange={(e) => changeProfileHandler('firstname', e)}/>
                             </div>
                         </div>
 
@@ -68,7 +105,7 @@ const Profile = () => {
                             <label htmlFor="last-name" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900 font-lato">Last Name</label>
                             <div className="mt-[11px]">
                                 <input type="text" id="last-name" autoComplete="given-name"
-                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" />
+                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" value={hubspotUserInfo.lastname!} onChange={(e) => changeProfileHandler('lastname', e)} />
                             </div>
                         </div>
                     </div>
@@ -78,7 +115,7 @@ const Profile = () => {
                             <label htmlFor="company-name" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900 font-lato">Company Name</label>
                             <div className="mt-[11px]">
                                 <input type="text" id="company-name" autoComplete="given-name"
-                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" />
+                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" value={hubspotUserInfo.company!} onChange={(e) => changeProfileHandler('company', e)}/>
                             </div>
                         </div>
 
@@ -86,7 +123,7 @@ const Profile = () => {
                             <label htmlFor="job-title" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900">Job Title</label>
                             <div className="mt-[11px]">
                                 <input type="text" id="job-title" autoComplete="given-name"
-                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" />
+                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" value={hubspotUserInfo.jobtitle!} onChange={(e) => changeProfileHandler('jobtitle', e)}/>
                             </div>
                         </div>
                     </div>
@@ -96,7 +133,7 @@ const Profile = () => {
                             <label htmlFor="email-address" className="block text-[16px] font-[600] leading-[19.2px] text-gray-900">Email Address</label>
                             <div className="mt-[11px]">
                                 <input type="text" id="email-address" autoComplete="given-name"
-                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" />
+                                    className="block w-full h-[64px] outline-0 p-[23px] rounded-md border-0 py-1.5 text-[#898988e8] shadow-sm ring-1 bg-[#E1E1E0CC] ring-inset text-[16px] font-[600] ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" disabled value={hubspotUserInfo.email!}/>
                             </div>
                         </div>
                     </div>
@@ -104,7 +141,7 @@ const Profile = () => {
                     <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 md:grid-cols-6">
                         <div className="md:w-[219px]">
                             <button
-                                className="w-full h-[61px] rounded-lg bg-[#0D0040] active:bg-[#0D0040] hover:bg-[#0d0040e7] text-white">
+                                className="w-full h-[61px] rounded-lg bg-[#0D0040] active:bg-[#0D0040] hover:bg-[#0d0040e7] text-white" onClick={saveHubspotInfo}>
                                 Save
                             </button>
                         </div>
