@@ -96,7 +96,7 @@ const Profile = () => {
                             <label htmlFor="first-name" className="f-lato block text-[16px] font-[600] leading-[19.2px] text-gray-900 f-lato">First Name</label>
                             <div className="mt-[5px] md:mt-[11px]">
                                 <input type="text" id="first-name" autoComplete="given-name"
-                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[23px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400" value={hubspotUserInfo.firstname!} onChange={(e) => changeProfileHandler('firstname', e)}/>
+                                    className="f-lato block w-full outline-0 h-[50px] md:h-[64px] p-[18px] rounded-md py-1.5 text-[#898988e8] bg-[#E1E1E0CC] text-[16px] font-[600] placeholder:text-gray-400" value={hubspotUserInfo.firstname!} onChange={(e) => changeProfileHandler('firstname', e)}/>
                             </div>
                         </div>
 
