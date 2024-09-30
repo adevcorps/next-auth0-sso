@@ -15,7 +15,7 @@ import { UserProvider } from "@auth0/nextjs-auth0/client";
 // });
 const lato = Lato({
   subsets: ['latin'], // Use 'latin' subset (customize if needed)
-  weight: ['100','300', '400', '700', '900'], // Choose the weights you need
+  weight: ['100', '300', '400', '700', '900'], // Choose the weights you need
   variable: '--font-lato'
 });
 
@@ -37,13 +37,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${lato.className} ${openSans.variable} antialiased`}
-      >
-        <UserProvider>
-          {children}
-        </UserProvider>
-      </body>
-    </html>
-  );
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+            </head>
+            <body
+              className={`${lato.className} ${openSans.variable} antialiased`}
+            >
+              <UserProvider>
+                {children}
+              </UserProvider>
+            </body>
+          </html>
+          );
 }

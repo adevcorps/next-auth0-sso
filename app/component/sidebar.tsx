@@ -18,42 +18,42 @@ export default function Sidebar ({toggleVisibility, isOpen} : SideBarProps)  {
                 <nav className="flex-grow">
                     <ul>
                         <li className='mb-4' onClick={handlerToggle}>
-                            <Link href="/dashboard/profile" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 leading-[25.2px] ${pathname === '/dashboard/profile' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
+                            <Link href="/dashboard/profile" className={`block f-open font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 leading-[25.2px] ${pathname === '/dashboard/profile' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 Account Profile
                             </Link>
                         </li>
                         <li className='mb-4' onClick={handlerToggle}>
-                            <Link href="/dashboard/billing" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 leading-[25.2px] ${pathname === '/dashboard/billing' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
+                            <Link href="/dashboard/billing" className={`block f-open font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 leading-[25.2px] ${pathname === '/dashboard/billing' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 Billing & Subscription
                             </Link>
                         </li>
                         <li className='mb-4'>
-                            <Link href="/dashboard/vse-home" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 leading-[25.2px] ${pathname === '/dashboard/vse-home' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
+                            <Link href="/dashboard/vse-home" className={`block f-open font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 leading-[25.2px] ${pathname === '/dashboard/vse-home' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 VSE Home
                             </Link>
                         </li>
                         <li className='mb-4'>
-                            <Link href="/dashboard/vse-get-start" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-get-start' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
+                            <Link href="/dashboard/vse-get-start" className={`block f-open font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-get-start' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 VSE Getting Started
                             </Link>
                         </li>
                         <li className='mb-4'>
-                            <Link href="/dashboard/vse-tutorial" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-tutorial' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
+                            <Link href="/dashboard/vse-tutorial" className={`block f-open font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-tutorial' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 VSE Tutorials
                             </Link>
                         </li>
                         <li className='mb-4'>
-                            <Link href="/dashboard/vse-troubleshoot" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-troubleshoot' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
+                            <Link href="/dashboard/vse-troubleshoot" className={`block f-open font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-troubleshoot' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 VSE Troubleshooting
                             </Link>
                         </li>
                         <li className='mb-4'>
-                            <Link href="/dashboard/vse-faq" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-faq' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
+                            <Link href="/dashboard/vse-faq" className={`block f-open font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-faq' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 VSE FAQs
                             </Link>
                         </li>
                         <li className='mb-4'>
-                            <Link href="/dashboard/vse-support" className={`block font-sans font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-support' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
+                            <Link href="/dashboard/vse-support" className={`block f-open font-[600] text-[16px] hover:text-[#0D0040] transition-colors duration-50 ${pathname === '/dashboard/vse-support' ? 'text-[#0D0040]' : 'text-[#949494]'}`}>
                                 VSE Support
                             </Link>
                         </li>

@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Light.ttf');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('./fonts/LatoLatin-Bold.woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('./fonts/LatoLatin-Regular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('./fonts/LatoLatin-Light.woff');
+  font-weight: lighter;
+  font-style: normal;
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,6 +55,8 @@
     --foreground: #ededed;
   }
 }
+
+
 
 body {
   color: var(--foreground);
@@ -35,27 +79,26 @@ body {
   transform-origin: 0%;
 }
 
-input:focus ~ label,
-input:not(:placeholder-shown) ~ label,
-textarea:focus ~ label,
-textarea:not(:placeholder-shown) ~ label,
-select:focus ~ label,
-select:not([value='']):valid ~ label {
+input:focus~label,
+input:not(:placeholder-shown)~label,
+textarea:focus~label,
+textarea:not(:placeholder-shown)~label,
+select:focus~label,
+select:not([value='']):valid~label {
   /* @apply transform; scale-75; -translate-y-6; */
   --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
   --tw-skew-x: 0;
   --tw-skew-y: 0;
-  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate))
-    skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   --tw-scale-x: 0.75;
   --tw-scale-y: 0.75;
   --tw-translate-y: -1.5rem;
 }
 
-input:focus ~ label,
-select:focus ~ label {
+input:focus~label,
+select:focus~label {
   /* @apply text-black; left-0; */
   --tw-text-opacity: 1;
   color: rgba(0, 0, 0, var(--tw-text-opacity));
@@ -66,4 +109,20 @@ select:focus ~ label {
   /* background: linear-gradient(to right, #0D0040 20%, #3806FA 20%, #0057A8 10%, #6F8E5F 5%, #BBB42D 20%, #BBB42D 15%, #BBB42D 10%); */
   background: linear-gradient(to right, #0D0040 10%, #3806FA 35%, #0057A8 50%, #6F8E5F 65%, #BBB42D 80%, #FFD601 90%, #FF9B04 100%);
 
+}
+
+.f-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.f-roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.f-lato {
+  font-family: 'Lato', sans-serif;
+}
+
+.f-open {
+  font-family: "Open Sans", sans-serif;
 }
