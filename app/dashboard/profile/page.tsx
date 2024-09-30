@@ -3,6 +3,7 @@
 import React, { useState, useEffect} from "react";
 import { ChangePassword } from "@/app/component/changePassword";
 // import { useUser } from '@auth0/nextjs-auth0/client';
+
 import { useSearchParams } from 'next/navigation';
 
 const Profile = () => {
@@ -16,17 +17,12 @@ const Profile = () => {
         jobtitle:"",
         company:"",
     });
-    
+    const searchParams = useSearchParams();
+    const queryData = searchParams.get('queryData');
     
 
     useEffect(() => {
         // console.log(queryData);
-        
-    }, [])
-
-    function searchUserParams() {
-        const searchParams = useSearchParams();
-        const queryData = searchParams.get('queryData');
         if(queryData != null) {
             const contactData = queryData ? JSON.parse(decodeURIComponent(queryData)) : null;
             localStorage.setItem('contactInfo', JSON.stringify(contactData));
@@ -34,7 +30,8 @@ const Profile = () => {
         }else {
             setHubSpotUserInfo(JSON.parse(localStorage.getItem('contactInfo')!));
         }
-    }
+    }, [])
+
     const changeProfileHandler = (type:string, e:React.ChangeEvent<HTMLInputElement>)=> {
         const value = e.target.value;
         setHubSpotUserInfo({...hubspotUserInfo, [type] :value})
