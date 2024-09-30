@@ -65,7 +65,9 @@ export default function Billing() {
                                 <p className="text-[20px] leading-[24px] mb-[10px] f-lato font-[600] text-[#171100]">Subscription Name</p>
                                 <div className="flex justify-between w-full">
                                     <p className="text-[16px] font-[600] leading-[19.2px] f-lato text-[#898988]">Gorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    <p className="text-[16px] font-[600] leading-[19.2px] f-lato text-[#171100]">renews 09/23/24</p>
+                                    <div className='text-right'>
+                                        <p className="text-[16px] font-[600] leading-[19.2px] f-lato text-[#171100]">renews 09/23/24</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
