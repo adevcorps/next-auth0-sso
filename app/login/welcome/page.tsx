@@ -18,7 +18,7 @@ const Welcome = ({ }) => {
 
     useEffect(() => {
         if (user) {
-            // setEmail(user.email!);
+            setEmail(user.email!);
         }
     }, [user])
 
