@@ -15,7 +15,7 @@ interface ModalProps {
 const issuerDomain = `${process.env.NEXT_PUBLIC_AUTH0_ISSUERD_DOMAIN}`;
 const bearerToken = `${process.env.NEXT_PUBLIC_AUTH0_API_MANAGEMENT_TOKEN}`;
 
-let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 export function ChangePassword({ onClose }: ModalProps) {
     const { user } = useUser();
     const [isPasswordTrue, setIsPasswordTrue] = useState(true);
