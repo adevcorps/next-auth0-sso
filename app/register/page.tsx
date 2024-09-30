@@ -166,7 +166,7 @@ const RegisterPage = () => {
 
                             <div className="relative z-0 w-full mt-[10px] sm:mt-[32px]">
                                 <Link href={`/dashboard/profile`}>
-                                    <button className="w-full h-[40px] sm:h-[61.5px] p-1 sm:p-[19px] text-[18px] font-lato font-bold text-black rounded-lg bg-[#FFD601] tracking-wide">Create Account</button>
+                                    <button className="w-full h-[40px] sm:h-[61.5px] p-1 sm:p-[19px] text-[18px] font-lato font-bold f-lato text-black rounded-lg bg-[#FFD601] tracking-wide">Create Account</button>
                                 </Link>
                             </div>
                         </div>
