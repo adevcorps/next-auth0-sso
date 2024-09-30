@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
-import imgLogo from '../../../assets/img/logo.png'
+import imgLogo from '../../../assets/img/vse-logo.svg'
 import { FiMenu, FiX } from 'react-icons/fi'; // For mobile menu toggle icons
 
 
@@ -16,7 +16,7 @@ export default function HeaderBar({ toggleVisibility, isOpen }: HeaderBarProps) 
         toggleVisibility();
     }
     return (
-        <div className={`w-full h-[113px] flex items-center justify-between z-40 lg:pl-[71px] md:pl-[20px] sm:pl-[20px] xs:pl-[20px] fixed md:relative z-1000 simple-linear`}>
+        <div className={`w-full p-[5px] lg:pl-[65px] h-[65px] md:h-[113px] flex items-center justify-between z-40 fixed md:relative z-1000 simple-linear`}>
             <Image
                 src={imgLogo.src}
                 width="122"
