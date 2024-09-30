@@ -4,13 +4,14 @@ import Subscription from '@/app/component/subscription';
 import { LoadingSpin } from '@/app/component/loading';
 // import { WebSocket } from 'ws';
 
-interface Subscription {
+interface SubscriptionProps {
     id: string;
     status: string;
     items: {
         data: {
             plan: {
                 nickname: string;
+                amount: string;
             };
         }[];
     };
@@ -20,7 +21,7 @@ interface Subscription {
 
 export default function Billing() {
 
-    const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
+    const [subscriptions, setSubscriptions] = useState<SubscriptionProps[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -102,7 +103,7 @@ export default function Billing() {
                 <div className="w-full lg:max-w-[1070px]">
                     {
                         subscriptions.length > 0 ?
-                            subscriptions.map((subs: any, key) =>
+                            subscriptions.map((subs: SubscriptionProps, key) =>
                                 <Subscription key={key} orderId={subs?.id} name={subs?.items.data[0].plan.nickname} amount={subs?.items.data[0].plan.amount} date={(new Date(subs.created * 1000)).toLocaleDateString("en-US")} />
                             )
                             : ''

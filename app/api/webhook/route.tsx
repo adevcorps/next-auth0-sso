@@ -152,10 +152,10 @@ async function handleStripeWebhook(body: Stripe.Event) {
 		case "customer.subscription.created":
 			// Add logic for handling the creation of a customer subscription
 			const subscription = body.data.object as Stripe.Subscription;
-			const message = JSON.stringify({
-				event: 'customer.subscription.created',
-				data: subscription
-			})
+			// const message = JSON.stringify({
+			// 	event: 'customer.subscription.created',
+			// 	data: subscription
+			// })
 			
 			// return new Response(
 			// 	JSON.stringify({ message: "Customer subscription created!" }),

@@ -12,9 +12,9 @@ const Welcome = ({ }) => {
     const { user } = useUser();
     const router = useRouter();
     const [email, setEmail] = useState("asdfsssaastsdaasdf@outlook.com");
-    const [contact, setContact] = useState<any>(null);
+    // const [contact, setContact] = useState<any>(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    // const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         if (user) {
@@ -52,41 +52,42 @@ const Welcome = ({ }) => {
                     };
                     // router.push(`/dashboard`);
                     router.push(`/dashboard/profile?queryData=${encodeURIComponent(JSON.stringify(contactData))}`)
-                    setContact(data);
+                    // setContact(data);
                 }
 
             } else {
-                setContact(null);
+                // setContact(null);
             }
         } catch (error) {
-            setError(JSON.stringify(error))
+            console.log(error)
+            // setError(JSON.stringify(error))
         }
         setIsLoading(false)
     }
 
-    const addContactByEmail = async () => {
-        const res = await fetch('/api/hubspot/create', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email }),
-        });
-        if (res.ok) {
-            const data = await res.json();
-            const contactData = {
-                contactId: data.id,
-                firstname: "",
-                lastname: "",
-                jobtitle: "",
-                company: "",
-                email: email
-            };
-            router.push(`/dashboard/profile?queryData=${encodeURIComponent(JSON.stringify(contactData))}`)
-        } else {
-            console.log("User creation failed!!!");
-        }
-    }
+    // const addContactByEmail = async () => {
+    //     const res = await fetch('/api/hubspot/create', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({ email }),
+    //     });
+    //     if (res.ok) {
+    //         const data = await res.json();
+    //         const contactData = {
+    //             contactId: data.id,
+    //             firstname: "",
+    //             lastname: "",
+    //             jobtitle: "",
+    //             company: "",
+    //             email: email
+    //         };
+    //         router.push(`/dashboard/profile?queryData=${encodeURIComponent(JSON.stringify(contactData))}`)
+    //     } else {
+    //         console.log("User creation failed!!!");
+    //     }
+    // }
 
     const checkUserInfoAndGetContact = () => {
         if (email !== "") {
