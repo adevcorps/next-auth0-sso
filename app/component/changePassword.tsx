@@ -32,7 +32,7 @@ export function ChangePassword({ onClose }: ModalProps) {
     }
 
     const handleChangePassword = (type: string, event: React.FormEvent<HTMLInputElement>) => {
-        var e = event.currentTarget.value;
+        let e = event.currentTarget.value;
         setChangePassword({ ...changePassword, [type]: e });
         if (type == "newPass") {
             if (regex.test(e)) {
