@@ -58,10 +58,10 @@ const Profile = () => {
     }
     // console.log(contactData)
 
-    // const handleTogglePasswordModal = () => {
-    //     setIsPass(true)
+    const handleTogglePasswordModal = () => {
+        setIsPass(true)
 
-    // }
+    }
 
     // const handleToResultForm = () => {
     //     if (user) {
@@ -151,7 +151,7 @@ const Profile = () => {
             <div className="border-b border-l-[1px] border-l-[#E1E1E1] border-b-[#E1E1E1] py-[68px] pl-[68px] pr-[184px] xl:pr-[184px] lg:px-[68px] md:px-[40px] sm:px-[20px] xs:px-[20px] xxs:px-[20px] border-r border-r-[#E1E1E1]">
             <div className="w-full xl:max-w-[1000px] flex justify-between">
                     <p className="text-xl font-semibold text-[#0D0040]">Password Management</p>
-                    <p className="text-sm font-semibold text-[#171100] underline cursor-pointer">Change Password</p>
+                    <p className="text-sm font-semibold text-[#171100] underline cursor-pointer" onClick={handleTogglePasswordModal}>Change Password</p>
                 </div>
             </div>
 

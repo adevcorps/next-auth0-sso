@@ -27,9 +27,9 @@ const config: Config = {
       // Array format:
       // 'roboto': ['Roboto', 'sans-serif'],
       // 'lato': ['Lato', 'sans-serif'], 
-      "roboto" : ['Roboto', 'sans-serif'],
-      "lato" : "var(--font-lato)",
-      'sans': "var(--font-open-sans)",
+      // "roboto" : ['Roboto', 'sans-serif'],
+      // "lato" : "var(--font-lato)",
+      // 'sans': "var(--font-open-sans)",
     }
   },
   plugins: [],
