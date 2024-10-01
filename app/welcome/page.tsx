@@ -1,11 +1,12 @@
 'use client'
 // import React from 'react';
 import React, { useState, useEffect } from "react";
-import logo from '../../../assets/img/logo.png';
+import logo from '../../assets/img/logo.png';
 import Image from "next/image";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
 import { useUser } from '@auth0/nextjs-auth0/client';
+import LogOut from "../component/logout";
 
 function Welcome({ }) {
     const { user } = useUser();
@@ -92,6 +93,7 @@ function Welcome({ }) {
     return (
         <div className='h-[100vh]'>
             <div className="h-full bg-gradient-to-r from-[#14005F80] to-[#0042A880] grid place-items-center">
+                <LogOut/>
                 <div className="w-10/12 sm:w-[510px] h-[482px] rounded-lg bg-authformbackground p-2 max-h-[680px]">
                     <div className="w-full flex justify-center py-4">
                         <Image

@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import Welcome from './login/welcome/page';
+import Welcome from './welcome/page';
 import { useEffect } from 'react';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 

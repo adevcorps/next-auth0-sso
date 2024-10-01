@@ -1,12 +1,11 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { ChangePassword } from "@/app/component/changePassword";
-import { useRouter } from "next/navigation";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
 const Profile = () => {
     const [isPass, setIsPass] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const router = useRouter();
     const [hubspotUserInfo, setHubSpotUserInfo] = useState({
         contactId: "",
         firstname: "",
@@ -19,9 +18,6 @@ const Profile = () => {
     useEffect(() => {
         if(localStorage.getItem('contactData') != null) {
             setHubSpotUserInfo(JSON.parse(localStorage.getItem('contactData')!));
-        } else {
-            alert("User data is empty")
-            router.push("/");
         }
     }, [])
 
@@ -146,9 +142,6 @@ const Profile = () => {
                                     </g>
                                 </svg>
                             </button>}
-
-
-
                         </div>
                     </div>
                 </div>
@@ -167,5 +160,6 @@ const Profile = () => {
         </div>
     );
 };
-
-export default Profile;
+export default withPageAuthRequired(Profile,{
+    returnTo:'/'
+});

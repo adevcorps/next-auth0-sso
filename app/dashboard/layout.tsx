@@ -1,7 +1,7 @@
 'use client'
 import React, { ReactNode, useState } from 'react';
 import Sidebar from '../component/sidebar'
-import HeaderBar from './headerbar/HeaderBar';
+import HeaderBar from '../component/headerBar'
 import { bool } from 'aws-sdk/clients/signer';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
