@@ -3,9 +3,9 @@ import React, { ReactNode, useState } from 'react';
 import Sidebar from '../component/sidebar'
 import HeaderBar from './headerbar/HeaderBar';
 import { bool } from 'aws-sdk/clients/signer';
-import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+// import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
-function DashboardLayout ({ children }: { children: ReactNode }) {
+export default function DashboardLayout ({ children }: { children: ReactNode }) {
 const [isOpen, setIsOpen] = useState<bool>(false); 
   const toggleVisibility = () => {
     setIsOpen( !isOpen);
@@ -25,4 +25,4 @@ const [isOpen, setIsOpen] = useState<bool>(false);
   );
 }
 
-export default withPageAuthRequired(DashboardLayout)
+// export default withPageAuthRequired(DashboardLayout)
