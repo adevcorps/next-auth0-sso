@@ -7,7 +7,7 @@ import React from 'react';
 // import { LoadingSpin } from './component/loading';
 // import { useRouter } from 'next/navigation';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-import PageLayout from './component/page-layout/page'
+import PageLayout from './page-layout/page'
 
 export default withPageAuthRequired(function Home() {
   // const { user, isLoading } = useUser();
