@@ -42,7 +42,6 @@ export function ChangePassword({ onClose }: ModalProps) {
             }
         }else{
             if (changePassword.newPass !== e) {
-                console.log(changePassword.newPass, e)
                 setIsConfirm(false)
             } else {
                 setIsConfirm(true);
