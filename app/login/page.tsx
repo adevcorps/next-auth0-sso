@@ -5,7 +5,7 @@ import Link from "next/link";
 import line from '../../assets/img/line.png';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
-const Login = ({ }) => {
+function Login ({ }) {
     return (
         <div className="f-open">
             <div className="h-[100vh] bg-gradient-to-l from-[#14005F80] to-[#0042A880] grid place-items-center">
@@ -77,6 +77,4 @@ const Login = ({ }) => {
     )
 }
 
-export default withPageAuthRequired(Login, {
-    returnTo: '/'
-});
+export default withPageAuthRequired(Login);

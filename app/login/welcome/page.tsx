@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-const Welcome = ({ }) => {
+function Welcome ({ }){
     const { user } = useUser();
     const router = useRouter();
     const [email, setEmail] = useState("asdfsssaastsdaasdf@outlook.com");
@@ -138,6 +138,4 @@ const Welcome = ({ }) => {
     )
 }
 
-export default withPageAuthRequired(Welcome, {
-    returnTo: '/'
-});
+export default withPageAuthRequired(Welcome);
