@@ -5,7 +5,6 @@ import Image from "next/image";
 import logo from '../../assets/img/logo.png';
 import axios from 'axios';
 import { useUser } from '@auth0/nextjs-auth0/client';
-// import Link from "next/link";
 
 interface ModalProps {
     onClose: () => void;
@@ -13,8 +12,8 @@ interface ModalProps {
 
 const issuerDomain = `${process.env.NEXT_PUBLIC_AUTH0_ISSUERD_DOMAIN}`;
 const bearerToken = `${process.env.NEXT_PUBLIC_AUTH0_API_MANAGEMENT_TOKEN}`;
-
 const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+
 export function ChangePassword({ onClose }: ModalProps) {
     const { user } = useUser();
     const [isPasswordTrue, setIsPasswordTrue] = useState(true);
@@ -24,12 +23,9 @@ export function ChangePassword({ onClose }: ModalProps) {
         newPass: "",
         confirmPass: ""
     })
-
-
     const handleCloseToggler = () => {
         onClose();
     }
-
     const handleChangePassword = (type: string, event: React.FormEvent<HTMLInputElement>) => {
         const e = event.currentTarget.value;
         setChangePassword({ ...changePassword, [type]: e });
@@ -52,9 +48,6 @@ export function ChangePassword({ onClose }: ModalProps) {
                 setIsConfirm(true);
             }
         }
-        
-
-
     }
     const handlePasswordCompare = () => {
         if (isPasswordTrue && isConfirm) {
@@ -131,7 +124,6 @@ export function ChangePassword({ onClose }: ModalProps) {
                                     </svg>
                                 </button>
                                 }
-                              
                             </div>
                         </div>
                     </div>

@@ -1,16 +1,12 @@
 'use client'
-// Needed for client-side components in Next.js App Router (v13+)
 import React, { useState, useEffect } from "react";
 import { ChangePassword } from "@/app/component/changePassword";
-// import { useUser } from '@auth0/nextjs-auth0/client';
-
-import { useSearchParams } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 const Profile = () => {
-    // const { user } = useUser();
     const [isPass, setIsPass] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-
+    const router = useRouter();
     const [hubspotUserInfo, setHubSpotUserInfo] = useState({
         contactId: "",
         firstname: "",
@@ -19,18 +15,13 @@ const Profile = () => {
         jobtitle: "",
         company: "",
     });
-    const searchParams = useSearchParams();
-    const queryData = searchParams.get('queryData');
-
 
     useEffect(() => {
-        // console.log(queryData);
-        if (queryData != null) {
-            const contactData = queryData ? JSON.parse(decodeURIComponent(queryData)) : null;
-            localStorage.setItem('contactInfo', JSON.stringify(contactData));
-            setHubSpotUserInfo(contactData);
+        if(localStorage.getItem('contactData') != null) {
+            setHubSpotUserInfo(JSON.parse(localStorage.getItem('contactData')!));
         } else {
-            setHubSpotUserInfo(JSON.parse(localStorage.getItem('contactInfo')!));
+            alert("User data is empty")
+            router.push("/");
         }
     }, [])
 
@@ -41,7 +32,6 @@ const Profile = () => {
 
     const saveHubspotInfo = async () => {
         setIsLoading(true);
-        console.log(hubspotUserInfo);
         const editRes = await fetch('/api/hubspot/edit', {
             method: 'POST',
             headers: {
@@ -52,6 +42,7 @@ const Profile = () => {
         const data = await editRes.json();
         if (editRes.ok) {
             if (data.createdAt && data.createdAt != '') {
+                localStorage.setItem('contactData', JSON.stringify(hubspotUserInfo));
                 alert("Data changed successfully!!");
                 setIsLoading(false)
             }
@@ -59,20 +50,17 @@ const Profile = () => {
             console.log("Error occurred!!!");
         }
     }
-    // console.log(contactData)
 
     const handleTogglePasswordModal = () => {
         setIsPass(true)
 
     }
-
     // const handleToResultForm = () => {
     //     if (user) {
     //         const resetPasswordUrl = `https://dev-f21n5m3ogrqn451x.us.auth0.com/dbconnections/change_password?client_id=kKk8xvu5bdSKUEMswaPJdiX4tWfLJ7UR&email=${user.email}&connection=Username-Password-Authentication`;
     //         window.location.href = resetPasswordUrl;
     //     }
     // }
-
     const onClose = () => {
         setIsPass(false)
     }
