@@ -1,11 +1,11 @@
 'use client'
 import React from 'react';
-import { useUser } from '@auth0/nextjs-auth0/client';
+// import { useUser } from '@auth0/nextjs-auth0/client';
 // import Login from "./login/page";
-import Welcome from './login/welcome/page';
-import { useEffect } from 'react';
-import { LoadingSpin } from './component/loading';
-import { useRouter } from 'next/navigation';
+// import Welcome from './login/welcome/page';
+// import { useEffect } from 'react';
+// import { LoadingSpin } from './component/loading';
+// import { useRouter } from 'next/navigation';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 import PageLayout from './component/page-layout/page'
 
