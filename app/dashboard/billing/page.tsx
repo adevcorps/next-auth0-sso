@@ -43,17 +43,17 @@ export default function Billing() {
     }, [])
     return (
         <>
+
+            <div className='mt-[75px] md:mt-0 relative'>
             {
                 loading ? <LoadingSpin /> : ''
             }
-            <div className='mt-[75px] md:mt-0'>
                 {/* Subscription Section */}
                 <div className="p-6 md:p-[40px] xl:p-[68px] border-l border-b border-[#E1E1E1] border-r">
                     <div className='max-w-[1000px]'>
                         <p className="f-open text-[24px] font-[600] leading-[25.2px] text-[#0D0040]">Subscription</p>
                     </div>
                 </div>
-
                 {/* Subscription Details Section */}
                 <div className="p-6 md:p-[40px] xl:p-[68px] xl:pr-[145px] border-l border-b items-center border-[#E1E1E1] ">
                     <div className='max-w-[1000px] flex flex-col xl:flex-row'>
@@ -66,7 +66,7 @@ export default function Billing() {
                                 <div className="flex justify-between w-full">
                                     <p className="text-[16px] font-[600] leading-[19.2px] f-lato text-[#898988]">Gorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     <div className='text-right'>
-                                        <p className="text-[16px] font-[600] leading-[19.2px] f-lato text-[#171100]">renews 09/23/24</p>
+                                        <p className="text-[16px] font-[600] cursor-pointer leading-[19.2px] f-lato text-[#171100]">Renews 09/23/24</p>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ export default function Billing() {
                 <div className="p-6 md:p-[40px] xl:p-[68px] xl:pr-[145px] border-l border-b flex justify-between border-[#E1E1E1]">
                     <div className='w-full lg:max-w-[1000px] flex justify-between'>
                         <p className="f-open text-[20px] md:text-[24px] font-[600] leading-[25.2px] text-[#0D0040]">Billing</p>
-                        <p className="text-[14px] f-lato font-[600] text-[#171100] underline cursor-pointer">View all</p>
+                        <p className="text-[14px] f-lato font-[600] text-[#171100] underline cursor-pointer hover:text-[#17110073] transition-colors duration-300">View all</p>
                     </div>
                 </div>
 
@@ -87,8 +87,8 @@ export default function Billing() {
                     <div className='w-full lg:max-w-[1000px] flex justify-between'>
                         <p className="f-open text-[20px] md:text-[24px] font-[600] text-[#0D0040]">Subscription Management</p>
                         <div className="w-4/12 md:w-2/12 flex justify-end items-center pt-[12px] md:pt-0">
-                            <p className="mr-[5px] md:mr-[30px] text-[14px] font-[600] text-[#171100] f-lato underline cursor-pointer">Renew</p>
-                            <p className="text-[14px] f-lato font-[600] text-[#171100] underline cursor-pointer">Cancel</p>
+                            <p className="mr-[5px] md:mr-[30px] text-[14px] font-[600] text-[#171100] f-lato underline cursor-pointer hover:text-[#17110073] transition-colors duration-300">Renew</p>
+                            <p className="text-[14px] f-lato font-[600] text-[#171100] underline cursor-pointer hover:text-[#17110073] transition-colors duration-300">Cancel</p>
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,10 @@
 'use client'
 export function LoadingSpin(){
     return (
-        <div className="fixed inset-0 z-[100] bg-black bg-opacity-50 h-full w-full flex items-center justify-center">
+        <div className="absolute z-[100] bg-[#ffffffa1] bg-opacity-50 h-full w-full flex items-center justify-center">
             <div className="flex items-center">
                 {/* <span className="text-3xl mr-4">Loading</span> */}
-                <svg className="animate-spin h-8 w-8 text-[#ffffff]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                <svg className="animate-spin h-8 w-8 text-[#0D0040]" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor"

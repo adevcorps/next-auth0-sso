@@ -151,7 +151,7 @@ const Profile = () => {
             <div className="border-b border-l-[1px] p-5 border-l-[#E1E1E1] border-b-[#E1E1E1] lg:py-[68px] lg:pl-[68px] lg:pr-[184px] border-r border-r-[#E1E1E1]">
             <div className="w-full xl:max-w-[1000px] items-center flex justify-between">
                     <p className="text-xl font-semibold text-[#0D0040]">Password Management</p>
-                    <p className="text-sm font-semibold text-[#171100] underline cursor-pointer hover:text-[#171100b2] transition-colors duration-300 " onClick={handleTogglePasswordModal}>Change Password</p>
+                    <p className="text-sm font-semibold text-[#171100] underline cursor-pointer hover:text-[#17110073] transition-colors duration-300 " onClick={handleTogglePasswordModal}>Change Password</p>
                 </div>
             </div>
 
