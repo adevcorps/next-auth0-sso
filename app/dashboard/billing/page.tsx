@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Subscription from '@/app/component/subscription';
 import { LoadingSpin } from '@/app/component/loading';
-// import { WebSocket } from 'ws';
 
 interface SubscriptionProps {
     id: string;
@@ -17,7 +16,6 @@ interface SubscriptionProps {
     };
     created: number;
 }
-
 
 export default function Billing() {
 
@@ -38,16 +36,13 @@ export default function Billing() {
         };
 
         fetchSubscriptions();
-        // Init websocket connecting
-
     }, [])
     return (
         <>
-
             <div className='mt-[75px] md:mt-0 relative'>
-            {
-                loading ? <LoadingSpin /> : ''
-            }
+                {
+                    loading ? <LoadingSpin /> : ''
+                }
                 {/* Subscription Section */}
                 <div className="p-6 md:p-[40px] xl:p-[68px] border-l border-b border-[#E1E1E1] border-r">
                     <div className='max-w-[1000px]'>
@@ -110,14 +105,7 @@ export default function Billing() {
                             )
                             : ''
                     }
-                    {/* <Subscription />
-                <Subscription />
-                <Subscription />
-                <Subscription />
-                <Subscription /> */}
                 </div>
-
-                {/* Footer Section */}
                 <div className="p-4 md:p-10 flex justify-between border-l border-b border-[#E1E1E1]"></div>
             </div>
         </>

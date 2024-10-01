@@ -3,13 +3,11 @@ import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import Welcome from './login/welcome/page';
 import { useEffect } from 'react';
-// import { LoadingSpin } from './component/loading';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
 export default withPageAuthRequired(function Home() {
   const { user, isLoading } = useUser();
   useEffect(() => {
-    console.log(isLoading);
     if (!isLoading) {
       if (user) {
         const fetchAWSCredentials = async () => {
@@ -24,17 +22,14 @@ export default withPageAuthRequired(function Home() {
                 },
                 body: JSON.stringify({ idToken }), // Pass the access token
               });
-
               if (!awsCredentialsResponse.ok) {
                 const errorMessage = await awsCredentialsResponse.text();
                 console.error('Error fetching AWS credentials:', errorMessage);
                 return;
+              } else {
+                const awsCredentials = await awsCredentialsResponse.json();
+                localStorage.setItem('awsCredentials', JSON.stringify(awsCredentials))
               }
-
-              const awsCredentials = await awsCredentialsResponse.json();
-              // setAwsCredentialInfo(awsCredentials);
-              console.log('AWS Credentials:', awsCredentials);
-              // setAwsLoading(false);
             }
           }
         };
