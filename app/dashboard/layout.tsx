@@ -3,8 +3,9 @@ import React, { ReactNode, useState } from 'react';
 import Sidebar from '../component/sidebar'
 import HeaderBar from './headerbar/HeaderBar';
 import { bool } from 'aws-sdk/clients/signer';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
-export default function DashboardLayout({ children }: { children: ReactNode }) {
+const DashboardLayout = ({ children }: { children: ReactNode }) => {
 const [isOpen, setIsOpen] = useState<bool>(false); 
   const toggleVisibility = () => {
     setIsOpen( !isOpen);
@@ -23,3 +24,7 @@ const [isOpen, setIsOpen] = useState<bool>(false);
     </div>
   );
 }
+
+export default withPageAuthRequired(DashboardLayout, {
+  returnTo: '/'
+})

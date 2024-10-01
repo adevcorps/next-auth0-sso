@@ -15,6 +15,7 @@ export default withPageAuthRequired(function Home() {
   const router = useRouter();
 
   useEffect(() => {
+    console.log(isLoading);
     if (!isLoading) {
       if (user) {
         const fetchAWSCredentials = async () => {

@@ -6,6 +6,7 @@ import Image from "next/image";
 // import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 const Welcome = ({ }) => {
     const { user } = useUser();
     const router = useRouter();
@@ -137,4 +138,6 @@ const Welcome = ({ }) => {
     )
 }
 
-export default Welcome;
+export default withPageAuthRequired(Welcome, {
+    returnTo: '/'
+});

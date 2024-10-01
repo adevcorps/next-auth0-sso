@@ -3,6 +3,8 @@ import logo from '../../assets/img/logo.png';
 import Image from "next/image";
 import Link from "next/link";
 import line from '../../assets/img/line.png';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
+
 const Login = ({ }) => {
     return (
         <div className="f-open">
@@ -75,4 +77,6 @@ const Login = ({ }) => {
     )
 }
 
-export default Login;
+export default withPageAuthRequired(Login, {
+    returnTo: '/'
+});
