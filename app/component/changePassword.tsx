@@ -5,7 +5,6 @@ import Image from "next/image";
 import logo from '../../assets/img/logo.png';
 import axios from 'axios';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { LoadingSpin } from './loading';
 // import Link from "next/link";
 
 interface ModalProps {
@@ -91,8 +90,7 @@ export function ChangePassword({ onClose }: ModalProps) {
     }
     return (
         <>
-            {isLoading ? <LoadingSpin /> : ''}
-            <div className="fixed inset-0 z-50 h-[100vh] bg-black bg-opacity-50 grid place-items-center">
+            <div className="fixed inset-0 z-[90] md:z-[110] h-[100vh] bg-black bg-opacity-50 grid place-items-center">
                 <div className="relative w-10/12 min-h-[513px] box-content sm:w-[510px] rounded-lg bg-authformbackground p-2">
                     <button className="absolute top-8 right-10 text-white" onClick={handleCloseToggler}>
                         ✕
@@ -120,7 +118,20 @@ export function ChangePassword({ onClose }: ModalProps) {
                                     <label htmlFor="floating_email" className="font-bold peer-focus:font-medium absolute text-xs text-white leading-[16.34px] dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  left-px rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 f-open">Confirm Password <span className="text-[#FFD601] peer-focus:text-blue-600">*</span></label>
                                 </div>
                                 {/* <button onClick={checkUserInfoAndGetContact} className="w-full p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">Go to VSE Dashboard</button> */}
-                                <button className="w-full h-[61.54px] mt-[32.69px] p-4.5 text-[18px] font-bold text-black rounded-lg transition-transform duration-300  f-lato active:bg-[#ffd5018a] bg-[#FFD601] hover:bg-[#ffd501cb]" onClick={handlePasswordCompare}>Change Password</button>
+                                {
+                                    !isLoading ? <button className="w-full h-[61.54px] mt-[32.69px] p-4.5 text-[18px] font-bold text-black rounded-lg transition-transform duration-300  f-lato active:bg-[#ffd5018a] bg-[#FFD601] hover:bg-[#ffd501cb]" onClick={handlePasswordCompare}>Change Password</button> : <button className="w-full mt-[32.69px] p-4.5 h-[45px] sm:h-[61.5px] text-[18px] f-lato font-bold flex items-center justify-center rounded-lg bg-[#ecdc89]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24">
+                                        <g stroke="currentColor">
+                                            <circle cx="12" cy="12" r="9.5" fill="none" stroke-linecap="round" stroke-width="1.55">
+                                                <animate attributeName="stroke-dasharray" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0 150;42 150;42 150;42 150" />
+                                                <animate attributeName="stroke-dashoffset" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0;-16;-59;-59" />
+                                            </circle>
+                                            <animateTransform attributeName="transform" dur="1.6s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+                                        </g>
+                                    </svg>
+                                </button>
+                                }
+                              
                             </div>
                         </div>
                     </div>

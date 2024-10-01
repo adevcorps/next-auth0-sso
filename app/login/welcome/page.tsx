@@ -6,8 +6,6 @@ import Image from "next/image";
 // import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { LoadingSpin } from "@/app/component/loading";
-
 const Welcome = ({ }) => {
     const { user } = useUser();
     const router = useRouter();
@@ -98,9 +96,6 @@ const Welcome = ({ }) => {
     // if(isLoading) return(<div>Loading...</div>)
     return (
         <div className='h-[100vh]'>
-            {
-                isLoading ? <LoadingSpin /> : ''
-            }
             <div className="h-full bg-gradient-to-r from-[#14005F80] to-[#0042A880] grid place-items-center">
                 <div className="w-10/12 sm:w-[510px] h-[482px] rounded-lg bg-authformbackground p-2 max-h-[680px]">
                     <div className="w-full flex justify-center py-4">
@@ -112,14 +107,26 @@ const Welcome = ({ }) => {
                         />
                     </div>
                     <div className="px-2 text-center">
-                        <div className="px-12 pt-4">
+                        <div className="px-2 md:px-12 pt-4">
                             <h1 className="text-[40px] leading-10 f-roboto font-[500] text-white">Welcome</h1>
                             <div className="relative z-0 w-full mt-16 mb-5 group">
                                 <button className="w-full f-lato p-2.5 text-[18px] font-bold text-black rounded-lg bg-[#FFD601] h-[45px] sm:h-[61.5px]">Go to VSE Dashboard</button>
                             </div>
                             <div className="relative z-0 w-full mb-5 group">
                                 {/* <Link href={'/dashboard/profile'}> */}
-                                <button className="w-full p-2.5 sm:h-[61.5px] text-[18px] f-lato font-bold text-black rounded-lg bg-[#FFD601]" onClick={checkUserInfoAndGetContact}>Go to My Account</button>
+                                {
+                                    !isLoading ? <button className="w-full p-2.5 h-[45px] sm:h-[61.5px] text-[18px] f-lato font-bold text-black rounded-lg bg-[#FFD601]" onClick={checkUserInfoAndGetContact}>Go to My Account</button> :                                  <button className="w-full p-2.5 h-[45px] sm:h-[61.5px] text-[18px] f-lato font-bold flex items-center justify-center rounded-lg bg-[#ecdc89]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24">
+                                        <g stroke="currentColor">
+                                            <circle cx="12" cy="12" r="9.5" fill="none" stroke-linecap="round" stroke-width="1.55">
+                                                <animate attributeName="stroke-dasharray" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0 150;42 150;42 150;42 150" />
+                                                <animate attributeName="stroke-dashoffset" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0;-16;-59;-59" />
+                                            </circle>
+                                            <animateTransform attributeName="transform" dur="1.6s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+                                        </g>
+                                    </svg>
+                                </button>
+                                }
                                 {/* </Link> */}
                             </div>
                         </div>

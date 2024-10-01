@@ -14,7 +14,7 @@ export default function Sidebar ({toggleVisibility, isOpen} : SideBarProps)  {
     return (
         <div className="flex h-full">
             {/* Sidebar */}
-            <div className={`bg-white text-[#0D0040] w-[335px] h-screen pt-[74px] pl-[75px] flex-col transition-transform duration-300 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} fixed lg:relative z-50`}>
+            <div className={`bg-white text-[#0D0040] w-[335px] h-screen pt-[74px] pl-[75px] flex-col transition-transform duration-300 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} fixed lg:relative z-[100]`}>
                 <nav className="flex-grow">
                     <ul>
                         <li className='mb-4' onClick={handlerToggle}>
