@@ -26,5 +26,5 @@ const [isOpen, setIsOpen] = useState<bool>(false);
 }
 
 export default withPageAuthRequired(DashboardLayout, {
-  returnTo: '/dashboard/profile'
+  returnTo: '/'
 })
