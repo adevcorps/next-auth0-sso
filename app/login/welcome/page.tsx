@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from "react";
 import logo from '../../../assets/img/logo.png';
 import Image from "next/image";
-// import Link from "next/link";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
 import { useUser } from '@auth0/nextjs-auth0/client';
-export default function Welcome ({ }){
+function Welcome ({ }){
     const { user } = useUser();
     const router = useRouter();
     const [email, setEmail] = useState("asdfsssaastsdaasdf@outlook.com");
@@ -137,4 +137,4 @@ export default function Welcome ({ }){
     )
 }
 
-// export default withPageAuthRequired(Welcome);
+export default withPageAuthRequired(Welcome);
