@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useRouter } from "next/navigation";
