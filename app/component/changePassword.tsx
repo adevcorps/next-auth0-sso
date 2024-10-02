@@ -5,6 +5,7 @@ import Image from "next/image";
 import logo from '../../assets/img/logo.png';
 import axios from 'axios';
 import { useUser } from '@auth0/nextjs-auth0/client';
+import NotifyAlert from './notifyAlert';
 
 interface ModalProps {
     onClose: () => void;
@@ -19,6 +20,9 @@ export function ChangePassword({ onClose }: ModalProps) {
     const [isPasswordTrue, setIsPasswordTrue] = useState(true);
     const [isConfirm, setIsConfirm] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
+    const [isAlertVisible, setAlertVisible] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const toggleAlert = () => setAlertVisible(!isAlertVisible);
     const [changePassword, setChangePassword] = useState({
         newPass: "",
         confirmPass: ""
@@ -32,15 +36,15 @@ export function ChangePassword({ onClose }: ModalProps) {
         if (type == "newPass") {
             if (regex.test(e)) {
                 setIsPasswordTrue(true);
-                if(e === changePassword.confirmPass) {
+                if (e === changePassword.confirmPass) {
                     setIsConfirm(true);
-                }else{
+                } else {
                     setIsConfirm(false);
                 }
             } else {
                 setIsPasswordTrue(false)
             }
-        }else{
+        } else {
             if (changePassword.newPass !== e) {
                 setIsConfirm(false)
             } else {
@@ -50,6 +54,7 @@ export function ChangePassword({ onClose }: ModalProps) {
     }
     const handlePasswordCompare = () => {
         if (isPasswordTrue && isConfirm) {
+            setIsError(false);
             setIsLoading(true);
             axios.patch(
                 `https://${issuerDomain}/api/v2/users/${user?.sub}`,
@@ -76,11 +81,18 @@ export function ChangePassword({ onClose }: ModalProps) {
                 console.log(error);
             })
         } else {
+            setIsError(true);
             alert("Please input correct password!")
         }
     }
     return (
         <>
+            <NotifyAlert
+                message={!isError ? `You've changed your password successfully!` : `Error occured!`}
+                isVisible={isAlertVisible}
+                onClose={toggleAlert}
+                status={!isError ? `success` : `failed`}
+            />
             <div className="fixed inset-0 z-[90] md:z-[110] h-[100vh] bg-black bg-opacity-50 grid place-items-center">
                 <div className="relative w-10/12 min-h-[513px] box-content sm:w-[510px] rounded-lg bg-authformbackground p-2">
                     <button className="absolute top-8 right-10 text-white" onClick={handleCloseToggler}>
@@ -111,16 +123,16 @@ export function ChangePassword({ onClose }: ModalProps) {
                                 {/* <button onClick={checkUserInfoAndGetContact} className="w-full p-2.5 text-lg font-bold text-black rounded-lg bg-[#FFD601]">Go to VSE Dashboard</button> */}
                                 {
                                     !isLoading ? <button className="w-full h-[61.54px] mt-[32.69px] p-4.5 text-[18px] font-bold text-black rounded-lg transition-transform duration-300  f-lato active:bg-[#ffd5018a] bg-[#FFD601] hover:bg-[#ffd501cb]" onClick={handlePasswordCompare}>Change Password</button> : <button className="w-full mt-[32.69px] p-4.5 h-[45px] sm:h-[61.5px] text-[18px] f-lato font-bold flex items-center justify-center rounded-lg bg-[#ecdc89]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24">
-                                        <g stroke="currentColor">
-                                            <circle cx="12" cy="12" r="9.5" fill="none" stroke-linecap="round" stroke-width="1.55">
-                                                <animate attributeName="stroke-dasharray" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0 150;42 150;42 150;42 150" />
-                                                <animate attributeName="stroke-dashoffset" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0;-16;-59;-59" />
-                                            </circle>
-                                            <animateTransform attributeName="transform" dur="1.6s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
-                                        </g>
-                                    </svg>
-                                </button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24">
+                                            <g stroke="currentColor">
+                                                <circle cx="12" cy="12" r="9.5" fill="none" stroke-linecap="round" stroke-width="1.55">
+                                                    <animate attributeName="stroke-dasharray" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0 150;42 150;42 150;42 150" />
+                                                    <animate attributeName="stroke-dashoffset" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0;-16;-59;-59" />
+                                                </circle>
+                                                <animateTransform attributeName="transform" dur="1.6s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+                                            </g>
+                                        </svg>
+                                    </button>
                                 }
                             </div>
                         </div>

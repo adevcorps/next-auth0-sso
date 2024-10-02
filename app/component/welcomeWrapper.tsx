@@ -37,6 +37,7 @@ function WelcomeWrapper() {
                                     email: email
                                 };
                                 localStorage.setItem('contactData', JSON.stringify(contactData));
+                                localStorage.setItem('loggedUser', 'true');
                                 router.push('/welcome')                            
                             }
                         }

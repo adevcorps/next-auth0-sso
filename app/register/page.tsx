@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from '../../assets/img/logo.png';
 import Image from "next/image";
 import v1 from '../../assets/img/Vector1.png'
@@ -10,9 +10,9 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 import { useRouter } from "next/navigation";
 
 function RegisterPage() {
-    const { user } = useUser();
+    const { user, isLoading } = useUser();
     const router = useRouter();
-    const [isLoading, setIsLoading] = useState(false);
+    const [isDataLoading, setIsLoading] = useState(false);
     const [userName, setUserName] = useState({
         firstName: "",
         lastName: "",
@@ -20,6 +20,12 @@ function RegisterPage() {
         jobtitle: "",
         company: "",
     })
+
+    useEffect(() => {
+        if(!isLoading) {
+            console.log(user)
+        }
+    }, [user, isLoading]);
 
     const hanleChangeUserName = (type: string, e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -227,7 +233,7 @@ function RegisterPage() {
 
                             <div className="relative z-0 w-full mt-[10px] sm:mt-[32px]">
                             {
-                                    !isLoading ? <button className="w-full h-[40px] sm:h-[61.5px] p-1 sm:p-[19px] text-[18px] font-bold f-lato text-black rounded-lg bg-[#FFD601] tracking-wide" onClick={handleRegUserToHubSpot}>Create Account</button> : <button className="w-full mt-[32.69px] p-4.5 h-[40px] sm:h-[61.5px] sm:p-[19px] text-[18px] f-lato font-bold flex items-center justify-center rounded-lg bg-[#ecdc89]">
+                                    !isDataLoading ? <button className="w-full h-[40px] sm:h-[61.5px] p-1 sm:p-[19px] text-[18px] font-bold f-lato text-black rounded-lg bg-[#FFD601] tracking-wide" onClick={handleRegUserToHubSpot}>Create Account</button> : <button className="w-full mt-[32.69px] p-4.5 h-[40px] sm:h-[61.5px] sm:p-[19px] text-[18px] f-lato font-bold flex items-center justify-center rounded-lg bg-[#ecdc89]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24">
                                         <g stroke="currentColor">
                                             <circle cx="12" cy="12" r="9.5" fill="none" stroke-linecap="round" stroke-width="1.55">
