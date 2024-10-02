@@ -255,5 +255,5 @@ function RegisterPage() {
 }
 
 export default withPageAuthRequired(RegisterPage, {
-    returnTo: '/register'
+    returnTo: '/'
 });

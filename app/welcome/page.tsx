@@ -42,4 +42,6 @@ function Welcome({ }) {
     )
 }
 
-export default withPageAuthRequired(Welcome);
+export default withPageAuthRequired(Welcome,{
+    returnTo: '/'
+});
