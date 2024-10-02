@@ -75,6 +75,8 @@ export function ChangePassword({ onClose }: ModalProps) {
                         confirmPass: ""
                     })
                     onClose();
+                    setIsError(false);
+                    setAlertVisible(true);
                     alert("Password changed successfully!!");
                 }
             }).catch(function (error) {
@@ -82,6 +84,7 @@ export function ChangePassword({ onClose }: ModalProps) {
             })
         } else {
             setIsError(true);
+            setAlertVisible(true);
             alert("Please input correct password!")
         }
     }
