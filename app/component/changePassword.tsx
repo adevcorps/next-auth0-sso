@@ -78,7 +78,6 @@ export function ChangePassword({ onClose }: ModalProps) {
         } else {
             alert("Please input correct password!")
         }
-
     }
     return (
         <>

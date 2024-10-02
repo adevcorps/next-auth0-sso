@@ -1,94 +1,95 @@
 'use client'
 // import React from 'react';
-import React, { useState, useEffect } from "react";
+import React from "react";
 import logo from '../../assets/img/logo.png';
 import Image from "next/image";
+import Link from "next/link";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
-import { useRouter } from "next/navigation";
-import { useUser } from '@auth0/nextjs-auth0/client';
+// import { useRouter } from "next/navigation";
+// import { useUser } from '@auth0/nextjs-auth0/client';
 import LogOut from "../component/logout";
 
 function Welcome({ }) {
-    const { user } = useUser();
-    const router = useRouter();
-    const [email, setEmail] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
-    useEffect(() => {
-        if (user) {
-            setEmail(user.email!);
-        }
-    }, [user])
+    // const { user } = useUser();
+    // const router = useRouter();
+    // const [email, setEmail] = useState("");
+    // const [isLoading, setIsLoading] = useState(false);
+    // useEffect(() => {
+    //     if (user) {
+    //         setEmail(user.email!);
+    //     }
+    // }, [user])
 
-    const getContactByEmail = async () => {
-        setIsLoading(true);
-        if (email !== "") {
-            try {
-                const res = await fetch('/api/hubspot/search', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email }),
-                });
-                if (res.ok) {
-                    const data = await res.json();
+    // const getContactByEmail = async () => {
+    //     setIsLoading(true);
+    //     if (email !== "") {
+    //         try {
+    //             const res = await fetch('/api/hubspot/search', {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify({ email }),
+    //             });
+    //             if (res.ok) {
+    //                 const data = await res.json();
 
-                    if (data.total == 0) {
-                        console.log(data.total);
-                        addContactByEmail();
-                    }
-                    else {
-                        const contactData = {
-                            contactId: data.results[0].id,
-                            firstname: data.results[0].properties.firstname,
-                            lastname: data.results[0].properties.lastname,
-                            jobtitle: data.results[0].properties.jobtitle,
-                            company: data.results[0].properties.company,
-                            email: email
-                        };
-                        localStorage.setItem('contactData', JSON.stringify(contactData));
-                        router.push(`/dashboard/profile`)
-                    }
-                }
-            } catch (error) {
-                console.log(error)
-            }
-        } else {
-            alert("User data is empty!!!")
-        }
-        setIsLoading(false)
-    }
+    //                 if (data.total == 0) {
+    //                     console.log(data.total);
+    //                     addContactByEmail();
+    //                 }
+    //                 else {
+    //                     const contactData = {
+    //                         contactId: data.results[0].id,
+    //                         firstname: data.results[0].properties.firstname,
+    //                         lastname: data.results[0].properties.lastname,
+    //                         jobtitle: data.results[0].properties.jobtitle,
+    //                         company: data.results[0].properties.company,
+    //                         email: email
+    //                     };
+    //                     localStorage.setItem('contactData', JSON.stringify(contactData));
+    //                     router.push(`/dashboard/profile`)
+    //                 }
+    //             }
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     } else {
+    //         alert("User data is empty!!!")
+    //     }
+    //     setIsLoading(false)
+    // }
 
-    const addContactByEmail = async () => {
-        const res = await fetch('/api/hubspot/create', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email }),
-        });
-        if (res.ok) {
-            const data = await res.json();
-            const contactData = {
-                contactId: data.id,
-                firstname: "",
-                lastname: "",
-                jobtitle: "",
-                company: "",
-                email: email
-            };
-            localStorage.setItem('contactData', JSON.stringify(contactData));
-            router.push(`/dashboard/profile`)
-        } else {
-            console.log("User creation failed!!!");
-        }
-    }
+    // const addContactByEmail = async () => {
+    //     const res = await fetch('/api/hubspot/create', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({ email }),
+    //     });
+    //     if (res.ok) {
+    //         const data = await res.json();
+    //         const contactData = {
+    //             contactId: data.id,
+    //             firstname: "",
+    //             lastname: "",
+    //             jobtitle: "",
+    //             company: "",
+    //             email: email
+    //         };
+    //         localStorage.setItem('contactData', JSON.stringify(contactData));
+    //         router.push(`/dashboard/profile`)
+    //     } else {
+    //         console.log("User creation failed!!!");
+    //     }
+    // }
 
-    const checkUserInfoAndGetContact = () => {
-        if (email !== "") {
-            getContactByEmail();
-        }
-    }
+    // const checkUserInfoAndGetContact = () => {
+    //     if (email !== "") {
+    //         getContactByEmail();
+    //     }
+    // }
 
     return (
         <div className='h-[100vh]'>
@@ -110,8 +111,9 @@ function Welcome({ }) {
                                 <button className="w-full f-lato p-2.5 text-[18px] font-bold text-black rounded-lg bg-[#FFD601] h-[45px] sm:h-[61.5px]">Go to VSE Dashboard</button>
                             </div>
                             <div className="relative z-0 w-full mb-5 group">
-                                {/* <Link href={'/dashboard/profile'}> */}
-                                {
+                                <Link href={'/dashboard/profile'}>
+                                <button className="w-full p-2.5 h-[45px] sm:h-[61.5px] text-[18px] f-lato font-bold text-black rounded-lg bg-[#FFD601]">Go to My Account</button>
+                                {/* {
                                     !isLoading ? <button className="w-full p-2.5 h-[45px] sm:h-[61.5px] text-[18px] f-lato font-bold text-black rounded-lg bg-[#FFD601]" onClick={checkUserInfoAndGetContact}>Go to My Account</button> : <button className="w-full p-2.5 h-[45px] sm:h-[61.5px] text-[18px] f-lato font-bold flex items-center justify-center rounded-lg bg-[#ecdc89]">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24">
                                             <g stroke="currentColor">
@@ -123,8 +125,8 @@ function Welcome({ }) {
                                             </g>
                                         </svg>
                                     </button>
-                                }
-                                {/* </Link> */}
+                                } */}
+                                </Link>
                             </div>
                         </div>
                     </div>
