@@ -7,19 +7,15 @@ interface AlertProps {
     status: string;
 }
 export default function NotifyAlert({ message, isVisible, onClose, status}: AlertProps) {
+    
     if (!isVisible) {
         return null;
-    } 
-    useEffect(() => {
-        const timer = setTimeout(() => {
+    } else {
+        setTimeout(() => {
             onClose(); // Hide the alert after 3 seconds
         }, 3000);
+    }
 
-        // Cleanup the timers if component unmounts
-        return () => {
-            clearTimeout(timer);
-        };
-    }, []);
     return (
         <div id="toast_modal" className={`mt-5 fixed left-5 bottom-5 flex items-center transition-opacity duration-3000 ease-in-out justify-between leading-normal border-l-4 p-4 rounded-md  ${status === 'success' ? 'bg-green-200 border-green-600 text-green-600' : 'bg-red-200 border-red-600 text-red-600'}`} role="alert">
             <p>{message}</p>
