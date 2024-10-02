@@ -74,9 +74,11 @@ export function ChangePassword({ onClose }: ModalProps) {
                         newPass: "",
                         confirmPass: ""
                     })
-                    onClose();
                     setIsError(false);
                     setAlertVisible(true);
+                    setTimeout(()=>{
+                        onClose();
+                    }, 2000)
                 }
             }).catch(function (error) {
                 console.log(error);
@@ -126,7 +128,7 @@ export function ChangePassword({ onClose }: ModalProps) {
                                     !isLoading ? <button className="w-full h-[61.54px] mt-[32.69px] p-4.5 text-[18px] font-bold text-black rounded-lg transition-transform duration-300  f-lato active:bg-[#ffd5018a] bg-[#FFD601] hover:bg-[#ffd501cb]" onClick={handlePasswordCompare}>Change Password</button> : <button className="w-full mt-[32.69px] p-4.5 h-[45px] sm:h-[61.5px] text-[18px] f-lato font-bold flex items-center justify-center rounded-lg bg-[#ecdc89]">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26px" height="26px" viewBox="0 0 24 24">
                                             <g stroke="currentColor">
-                                                <circle cx="12" cy="12" r="9.5" fill="none" stroke-linecap="round" stroke-width="1.55">
+                                                <circle cx="12" cy="12" r="9.5" fill="none" strokeLinecap="round" strokeWidth="1.55">
                                                     <animate attributeName="stroke-dasharray" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0 150;42 150;42 150;42 150" />
                                                     <animate attributeName="stroke-dashoffset" calcMode="spline" dur="1.2s" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" keyTimes="0;0.475;0.95;1" repeatCount="indefinite" values="0;-16;-59;-59" />
                                                 </circle>
