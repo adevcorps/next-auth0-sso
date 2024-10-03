@@ -17,7 +17,7 @@ export default function NotifyAlert({ message, isVisible, onClose, status}: Aler
     }
 
     return (
-        <div id="toast_modal" className={`mt-5 fixed left-5 bottom-5 flex items-center transition-opacity duration-3000 ease-in-out justify-between leading-normal p-4 rounded-md  ${status === 'success' ? 'bg-authformbackground  text-white' : 'bg-red-200 border-red-600 text-red-600'}`} role="alert">
+        <div id="toast_modal" className={`mt-5 fixed right-5 bottom-5 flex items-center transition-opacity duration-3000 ease-in-out justify-between leading-normal p-4 rounded-md  ${status === 'success' ? 'bg-authformbackground  text-white' : 'bg-red-200 border-red-600 text-red-600'}`} role="alert">
             <p>{message}</p>
 
             <svg onClick={onClose} className="inline w-4 h-4 fill-current ml-2 hover:opacity-80 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
