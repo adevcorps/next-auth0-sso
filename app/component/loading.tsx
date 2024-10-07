@@ -1,7 +1,7 @@
 'use client'
 export function LoadingSpin() {
     return (
-        <div className="absolute z-[40] bg-[#ffffffa1] bg-opacity-50 h-full w-full flex justify-center pt-[20rem]">
+        <div className="absolute z-[40] bg-[#f2f2f2f2] bg-opacity-95 h-full w-full flex justify-center pt-[20rem]">
                 {/* <span className="text-3xl mr-4">Loading</span> */}
                 <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="0 0 24 24">
                     <g stroke="#0D0040">
