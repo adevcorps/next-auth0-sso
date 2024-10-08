@@ -19,7 +19,6 @@ const Profile = () => {
         jobtitle: "",
         company: "",
     });
-
     useEffect(() => {
         if (localStorage.getItem('contactData') != null) {
             setHubSpotUserInfo(JSON.parse(localStorage.getItem('contactData')!));
@@ -29,6 +28,32 @@ const Profile = () => {
         } else {
             setIsLoggedUser(true)
         }
+        const checkSubscription = async () => {
+            try {
+                const res = await fetch('/api/check-subscription', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: hubspotUserInfo.email }),
+                });
+
+                const data = await res.json();
+                console.log(data);
+                // if (data.exists) {
+                //     setStatusMessage(`Subscription is active. Status: ${data.subscriptionStatus}`);
+                // } else {
+                //     setStatusMessage(`No active subscription found. Message: ${data.message}`);
+                // }
+            } catch (error) {
+                console.error('Error checking subscription:', error);
+                // setStatusMessage('Failed to check subscription.');
+            }
+        };
+        if(hubspotUserInfo.email !== "") {
+            checkSubscription();
+        }
+
     }, [])
 
     const changeProfileHandler = (type: string, e: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,7 +101,7 @@ const Profile = () => {
     return (
         <div className="f-open">
             <NotifyAlert
-                message={ !isError? `You've changed your data successfully!` : `Error occured!`}
+                message={!isError ? `You've changed your data successfully!` : `Error occured!`}
                 isVisible={isAlertVisible}
                 onClose={toggleAlert}
                 status={!isError ? `success` : `failed`}

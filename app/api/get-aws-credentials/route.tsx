@@ -9,7 +9,7 @@ export async function POST(req: Request) {
 
     // Initialize CognitoIdentityClient
     const logins = {
-      'dev-f21n5m3ogrqn451x.us.auth0.com': idToken, // Replace with your Auth0 domain
+      'vse-dev.us.auth0.com': idToken, // Replace with your Auth0 domain
     };
     const credentials = await fromCognitoIdentityPool({
       clientConfig: { region: "us-east-1" },
