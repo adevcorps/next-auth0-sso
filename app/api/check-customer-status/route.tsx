@@ -11,7 +11,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 //     message: string
 // }
 
-export default async function POST(req: Request) {
+export async function POST(req: Request) {
     const { email } = await req.json();
     if (!email) {
         return NextResponse.json({ exists: false, message: 'Email is required' });
