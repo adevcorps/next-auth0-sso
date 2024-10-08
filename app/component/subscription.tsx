@@ -5,7 +5,7 @@ interface SubScriptionProps {
     orderId: string;
     date: string,
     name: string,
-    amount: string,
+    amount: number,
 }
 const Subscription = ({orderId, date, name, amount} : SubScriptionProps) => {
     return(
