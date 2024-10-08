@@ -5,11 +5,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2024-06-20',
 });
 
-type Data = {
-    exists: boolean,
-    subscriptionStatus: string,
-    message: string
-}
+// type Data = {
+//     exists: boolean,
+//     subscriptionStatus: string,
+//     message: string
+// }
 
 export default async function POST(req: Request) {
     const { email } = await req.json();
