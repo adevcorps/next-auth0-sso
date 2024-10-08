@@ -4,16 +4,24 @@ import Subscription from '@/app/component/subscription';
 import { LoadingSpin } from '@/app/component/loading';
 import { useUser } from '@auth0/nextjs-auth0/client';
 
+// type Invoice = {
+//     id: string; // Example field
+//     amount_due: number; // Example field
+//     currency: string; // Example field
+//     // Add other fields as per your requirement based on the Stripe Invoice API response
+// };
+
 type SubscriptionResponse = {
-    invoices?: any; 
+    invoices?: InvoiceInfo[]; 
     subscriptions?: {
         current_period_end: number;
-        [key: string]: any;
+        [key: string] : unknown;
     }[];
     product?: string[];
     hasActiveSubscription: boolean;
     message?: string;
 };
+
 type ProductInfo = {
     name?: string;
 };
@@ -60,7 +68,7 @@ export default function Billing() {
                     setProductInfo(data.product || {});
                 }
                 if (data.invoices) {
-                    setInvoicesInfo(data.invoices?.data);
+                    setInvoicesInfo(data.invoices);
                 }
                 // console.log("userEmailAddress success:", userEmailAddress);
             } catch (error) {
