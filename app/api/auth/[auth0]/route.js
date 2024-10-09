@@ -5,6 +5,7 @@ const logoutUrl = [
     `client_id=${process.env.AUTH0_CLIENT_ID}`,
     `&returnTo=${process.env.AUTH0_BASE_URL}`,
 ];
+
 export const GET = handleAuth({
     profile: handleProfile({ refetch: true}),
     logout: handleLogout({ returnTo: logoutUrl.join('') })
