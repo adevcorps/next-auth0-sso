@@ -9,7 +9,11 @@ function WelcomeWrapper() {
     const { user, isLoading } = useUser();
     const router = useRouter();
     useEffect(() => {
-        if(!isLoading) {
+        if(!isLoading && user) {
+            console.log(user['http://localhost:3000/is_new_user']);
+            // if(user['http://localhost:3000/is_new_user']){
+            //     isNewuser = true;
+            // }
             const getContactByEmail = async (email : string) => {
                 if (email !== "") {
                     try {
@@ -23,11 +27,10 @@ function WelcomeWrapper() {
                         if (res.ok) {
                             const data = await res.json();
         
-                            if (data.total == 0) {
+                            if (data.total == 0 ) {
                                 router.push('/register');
                             }
                             else {
-                                console.log(data)
                                 const contactData = {
                                     contactId: data.results[0].id,
                                     firstname: data.results[0].properties.firstname,
@@ -36,6 +39,7 @@ function WelcomeWrapper() {
                                     company: data.results[0].properties.company,
                                     email: email
                                 };
+
                                 localStorage.setItem('contactData', JSON.stringify(contactData));
                                 localStorage.setItem('loggedUser', 'true');
                                 router.push('/welcome')                            
