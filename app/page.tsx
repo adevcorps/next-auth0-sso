@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import WelcomeWrapper from './component/welcomeWrapper';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
